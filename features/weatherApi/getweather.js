@@ -57,7 +57,6 @@ export const getweatherslice = createSlice({
       });
 
       builder.addCase(getCountry.fulfilled, (state, action) => {
-
         state.country=action.payload.countryName;
         state.city=action.payload.stateProv;
       });
