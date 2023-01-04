@@ -99,9 +99,10 @@ align-items: center;
 }
 
 .maincontainer .LeftDiv .InfoDiv .weatherDiv .lft .md h2{
-  font-size: 75px;
+  font-size: 105px;
   font-weight: 300;
   color: white;
+  text-shadow: 2px 2px 5px #1C0C08;
 }
 
 
