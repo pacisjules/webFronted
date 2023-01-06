@@ -159,6 +159,11 @@ export default function Home() {
       </div>
       <div className={classes.RightDiv}>
       <h1>Right</h1>
+      <Link href="/homes">
+      <button type='button' width="300px">
+            login in
+          </button>
+      </Link>
       </div>
 
 
