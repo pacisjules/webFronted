@@ -1,5 +1,4 @@
-
-.maincontainer{
+.maincontainer {
   width: 100%;
   height: 100vh;
   background-color: white;
@@ -10,19 +9,19 @@
 }
 
 
-.maincontainer .LeftDiv{
-background-color: blue;
-width: 60%;
-background-image: url("../../pages/assets/images/lgbg.png");
-background-position: center;
-background-size: cover;
-display: flex;
-justify-content: center;
-align-items: center;
+.maincontainer .LeftDiv {
+  background-color: blue;
+  width: 60%;
+  background-image: url("../../pages/assets/images/lgbg.png");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
-.maincontainer .LeftDiv .InfoDiv{
+.maincontainer .LeftDiv .InfoDiv {
   width: 60%;
   height: 90%;
   background-color: rgba(0, 0, 0, 0.78);
@@ -33,24 +32,25 @@ align-items: center;
   align-items: center;
 }
 
-.maincontainer .LeftDiv .InfoDiv .igihe{
+.maincontainer .LeftDiv .InfoDiv .igihe {
   width: 80%;
   height: 20%;
   text-align: center;
 }
 
-.maincontainer .LeftDiv .InfoDiv .igihe h1{
+.maincontainer .LeftDiv .InfoDiv .igihe h1 {
   color: white;
   font-size: 40px;
 }
-.maincontainer .LeftDiv .InfoDiv .igihe h3{
+
+.maincontainer .LeftDiv .InfoDiv .igihe h3 {
   margin-top: 20px;
   color: white;
   font-weight: lighter;
   font-size: 35px;
 }
 
-.maincontainer .LeftDiv .InfoDiv .logodiv{
+.maincontainer .LeftDiv .InfoDiv .logodiv {
   background-color: white;
   width: 80%;
   height: 20%;
@@ -59,14 +59,14 @@ align-items: center;
   align-items: center;
 }
 
-.maincontainer .LeftDiv .InfoDiv .weatherDiv{
+.maincontainer .LeftDiv .InfoDiv .weatherDiv {
   width: 80%;
   height: 35%;
   display: flex;
   justify-content: space-around;
 }
 
-.maincontainer .LeftDiv .InfoDiv .weatherDiv .lft{
+.maincontainer .LeftDiv .InfoDiv .weatherDiv .lft {
   height: 100%;
   width: 30%;
   display: flex;
@@ -74,31 +74,31 @@ align-items: center;
   flex-direction: column;
 }
 
-.maincontainer .LeftDiv .InfoDiv .weatherDiv .lft .tp{
+.maincontainer .LeftDiv .InfoDiv .weatherDiv .lft .tp {
   width: 100%;
   height: auto;
   text-align: center;
 }
 
-.maincontainer .LeftDiv .InfoDiv .weatherDiv .lft .tp h2{
-  font-weight:200;
+.maincontainer .LeftDiv .InfoDiv .weatherDiv .lft .tp h2 {
+  font-weight: 200;
   color: white;
 }
 
-.maincontainer .LeftDiv .InfoDiv .weatherDiv .lft .md{
- background: rgb(0,163,255);
- background: linear-gradient(180deg, rgba(0,163,255,1) 0%, rgba(255,255,240,1) 100%);
- width: 100%;
- height: 60%;
- text-align: center;
- display: flex;
- justify-content: center;
- align-items: center;
- border-radius: 15px;
+.maincontainer .LeftDiv .InfoDiv .weatherDiv .lft .md {
+  background: rgb(0, 163, 255);
+  background: linear-gradient(180deg, rgba(0, 163, 255, 1) 0%, rgba(255, 255, 240, 1) 100%);
+  width: 100%;
+  height: 60%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
 
 }
 
-.maincontainer .LeftDiv .InfoDiv .weatherDiv .lft .md h2{
+.maincontainer .LeftDiv .InfoDiv .weatherDiv .lft .md h2 {
   font-size: 105px;
   font-weight: 300;
   color: white;
@@ -106,23 +106,40 @@ align-items: center;
 }
 
 
-.maincontainer .LeftDiv .InfoDiv .weatherDiv .lft .btm{
+.maincontainer .LeftDiv .InfoDiv .weatherDiv .lft .btm {
   width: 100%;
   height: auto;
   text-align: center;
 }
 
-.maincontainer .LeftDiv .InfoDiv .weatherDiv .lft .btm h2{
-  font-weight:200;
+.maincontainer .LeftDiv .InfoDiv .weatherDiv .lft .btm h2 {
+  font-weight: 200;
   color: white;
 }
 
 
 
-.maincontainer .LeftDiv .InfoDiv .weatherDiv .rgt{
-  background-color: rgb(255, 0, 166);
+.maincontainer .LeftDiv .InfoDiv .weatherDiv .rgt {
   height: 100%;
   width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.maincontainer .LeftDiv .InfoDiv .weatherDiv .rgt h1 {
+  font-size: 75px;
+  font-weight: 200;
+  color: white;
+}
+
+.maincontainer .LeftDiv .InfoDiv .weatherDiv .rgt h1 sup {
+  font-size: 25px;
+}
+
+.maincontainer .LeftDiv .InfoDiv .weatherDiv .rgt img {
+  border-radius: 50%;
+  width: 40px;
 }
 
 
@@ -133,7 +150,200 @@ align-items: center;
 
 
 
-.maincontainer .RightDiv{
+.maincontainer .RightDiv {
   background-color: white;
   width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.maincontainer .RightDiv .RightTop {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+.maincontainer .RightDiv .RightTop .SoftLogo {
+  width: 100px;
+  height: 100px;
+  background-image: url("../../pages/assets/images/Inventoryicon.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  border: 1px solid #71BFE0;
+  -webkit-box-shadow: -1px 3px 12px 0px rgba(0,51,66,0.29);
+  -moz-box-shadow: -1px 3px 12px 0px rgba(0,51,66,0.29);
+  box-shadow: -1px 3px 12px 0px rgba(0,51,66,0.29);
+}
+
+
+.maincontainer .RightDiv .RightTop h1 {
+  color: #4B4B4B;
+  margin-top: 15px;
+}
+
+.maincontainer .RightDiv .RightTop p {
+  color: #4B4B4B;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 12px;
+}
+
+
+.maincontainer .RightDiv .RightMiddle {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.maincontainer .RightDiv .RightMiddle .Username{
+  background-color: #E1FAFF;
+  margin-top: 8px;
+  margin-bottom: 3px;
+  padding: 10px;
+  width: 90%;
+  border-radius: 7px;
+  border: 1px solid #C2E1E8;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.maincontainer .RightDiv .RightMiddle .Username input[type=text]{
+  background-color: transparent;
+  outline: none;
+  border: none;
+  width: 90%;
+  height: 100%;
+  padding: 3px;
+  font-family: "Inter";
+  transition: 0.2s ease-in-out;
+}
+
+.maincontainer .RightDiv .RightMiddle .Username input[type=text]:focus+Username{
+  -webkit-box-shadow: -1px 3px 12px 0px rgba(0,51,66,0.29);
+  -moz-box-shadow: -1px 3px 12px 0px rgba(0,51,66,0.29);
+  box-shadow: -1px 3px 12px 0px rgba(0,51,66,0.29);
+}
+
+
+.maincontainer .RightDiv .RightMiddle .Password{
+  background-color: #E1FAFF;
+  margin-top: 8px;
+  margin-bottom: 3px;
+  padding: 10px;
+  width: 90%;
+  border-radius: 7px;
+  border: 1px solid #C2E1E8;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.maincontainer .RightDiv .RightMiddle .Password input[type=password]{
+  background-color: transparent;
+  outline: none;
+  border: none;
+  width: 90%;
+  height: 100%;
+  padding: 3px;
+  font-family: "Inter";
+  transition: 0.2s ease-in-out;
+}
+
+.maincontainer .RightDiv .RightMiddle .Password input[type=password]:focus+Password{
+  -webkit-box-shadow: -1px 3px 12px 0px rgba(0,51,66,0.29);
+  -moz-box-shadow: -1px 3px 12px 0px rgba(0,51,66,0.29);
+  box-shadow: -1px 3px 12px 0px rgba(0,51,66,0.29);
+}
+
+.maincontainer .RightDiv .RightMiddle .loginfo{
+  width: 94%;
+  padding: 3px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7px;
+}
+
+.maincontainer .RightDiv .RightMiddle .loginfo p{
+  font-size: small;
+  color: #4B4B4B;
+}
+
+.maincontainer .RightDiv .RightMiddle .loginfo a{
+  text-decoration: none;
+  color: #0085FF;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+}
+.maincontainer .RightDiv .RightMiddle .loginfo a:hover{
+  color: #00be65;
+}
+
+.maincontainer .RightDiv .RightMiddle .loginbutton{
+  width: 95%;
+  margin-top: 15px;
+}
+
+.maincontainer .RightDiv .RightMiddle .loginbutton button{
+  width: 100%;
+  height: 40px;
+  flex: 1;
+  background-color: #0085FF;
+  outline: none;
+  border: none;
+  font-family: "Inter";
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 7px;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  -webkit-box-shadow: 2px 3px 7px 0px rgba(173,225,236,1);
+  -moz-box-shadow: 2px 3px 7px 0px rgba(173,225,236,1);
+  box-shadow: 2px 3px 7px 0px rgba(173,225,236,1);
+}
+
+.maincontainer .RightDiv .RightMiddle .loginbutton button:hover{
+  background-color: #006dd3;
+  -webkit-box-shadow: 2px 3px 15px 4px rgba(173,225,236,1);
+  -moz-box-shadow: 2px 3px 15px 4px rgba(173,225,236,1);
+  box-shadow: 2px 3px 15px 4px rgba(173,225,236,1);
+}
+
+
+
+
+
+
+
+
+
+.maincontainer .RightDiv .RightBottom {
+  width: 80%;
+  text-align: center;
+  font-size: smaller;
+}
+
+.maincontainer .RightDiv .RightBottom p{
+  margin-top: 3px;
+}
+
+.maincontainer .RightDiv .RightBottom a{
+  text-decoration: none;
+  color: #0085FF;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+}
+
+.maincontainer .RightDiv .RightBottom a:hover{
+  color: #00be65;
 }

@@ -59,6 +59,7 @@ export const getweatherslice = createSlice({
       builder.addCase(getCountry.fulfilled, (state, action) => {
         state.country=action.payload.countryName;
         state.city=action.payload.stateProv;
+        localStorage.setItem('city', action.payload.stateProv)
       });
 
      builder.addCase(getCountry.rejected, (state) => {

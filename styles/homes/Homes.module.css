@@ -1,217 +1,223 @@
 .homesContainer {
-  width: 100%;
-  height: 100vh;
-  background-color: white;
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .homesContainer .top {
-  width: 60%;
-  height: 50%;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
 }
+
 /* .homesContainer .top .info{
     padding-top: 0;
     width: 80%;
     text-align: center;
 } */
-.homesContainer .top img{
-    padding-top: 0;
-    width: 80px;
+
+.homesContainer .top .photoSet{
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: #007AEB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
-}
-.homesContainer .top h2{
-    width: 30%;
-    
-}
-.homesContainer .top .currentTime{
-    color: #006BCD;
-    font-size: 10px;
-    margin: 0;
-    padding: 0;
-}
-.homesContainer .top .appDescription{
-    color: #878787;
-    font-size: 13px;
+    border: 2px solid #92d7e5;
+    -webkit-box-shadow: 2px 3px 7px 0px #ade1ec;
+  -moz-box-shadow: 2px 3px 7px 0px rgba(173,225,236,1);
+  box-shadow: 2px 3px 7px 0px rgba(173,225,236,1);
 }
 
-.homesContainer .mid {
-  width: 60%;
-  height: 20%;
-  margin: 20px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
+.homesContainer .top .photoSet img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
-.homesContainer .mid h3{
+
+.homesContainer .top h2 {
+    width: 60%;
+    font-size: 20px;
+    margin: 5px;
     color: #4B4B4B;
-    font-size: 30px;
-    margin-top: -1rem ;
 }
-.homesContainer .mid .mobileAvailable{
+
+.homesContainer .top .currentTime {
+    color: #006BCD;
+    font-size: 13px;
+    margin: 5px;
+}
+
+.homesContainer .top .appDescription {
+    color: #878787;
+    font-size: 13px;
+    margin: 5px;
+    width: 80%;
+}
+
+
+
+.homesContainer .mid {
+    width: 70%;
+    height: 20%;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.homesContainer .mid h3 {
+    color: #4B4B4B;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.homesContainer .mid .mobileAvailable {
     margin-top: -1rem;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.homesContainer .mid .mobileAvailable img{
+    width: 150px;
+}
+
+
+.homesContainer .bot {
+    width: 80%;
+    height: 50%;
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1rem;
 
 }
-/* .homesContainer .mid .mobileAvailable .apple{
-    height: 3.5rem;
-    padding-bottom: -1rem;
-}
-.homesContainer .mid .mobileAvailable .google{
-    padding-top: -1rem;
-    margin-top: 0;
-} */
 
- .homesContainer .bot{
-  width: 80%;
-  height: 50%;
-  display: flex;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 1rem;
-  
- }
- .homesContainer .bot h2{
+.homesContainer .bot h2 {
     color: #4B4B4B;
-    margin-bottom: -30px;
- }
- .homesContainer .bot p{
-    margin-bottom: -15px;
+}
+
+.homesContainer .bot p {
     color: #878787;
     font-size: 13px;
 
- }
- .homesContainer .bot .botcontainer{
-    background: radial-gradient(circle, rgba(0,133,255,1) 0%, rgba(0,96,184,1) 100%);
+}
+
+.homesContainer .bot .botcontainer {
+    background: radial-gradient(circle, rgba(0, 133, 255, 1) 0%, rgba(0, 96, 184, 1) 100%);
     width: 70%;
     height: 25vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 23px;
+}
 
-    border-radius: 23px;  
- }
- .homesContainer .bot .botcontainer .div1{
+.homesContainer .bot .botcontainer .div1 {
     background: white;
     margin: 10px 10px 10px 0;
-    width: 17%;
-    height: 20vh;
+    width: 130px;
+    height: 130px;
     border-radius: 15px;
- }
- .homesContainer .bot .botcontainer .div1 h2{
+}
+
+.homesContainer .bot .botcontainer .div1 h2 {
     color: #007AEB;
-    margin:15px 0 10px 0 ;
- }
- .homesContainer .bot .botcontainer .div1 .open1{
+    margin: 15px 0 10px 0;
+}
+
+.homesContainer .bot .botcontainer .div1 .open1 {
     background: #007AEB;
     color: white;
-    margin:20px 15px 19px 15px ;
+    margin: 20px 15px 19px 15px;
+    padding: 3px;
+    border-radius: 5px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
 
- }
- .homesContainer .bot .botcontainer .div2{
+.homesContainer .bot .botcontainer .div1 .open1:hover{
+    background: #0054a2;
+}
+
+.homesContainer .bot .botcontainer .div2 {
     background: white;
     margin: 10px;
-    width: 17%;
-    height: 20vh;
+    width: 130px;
+    height: 130px;
     border-radius: 15px;
 }
-.homesContainer .bot .botcontainer .div2 h2{
-    color: #CE7C00;
-    margin:15px 0 10px 0 ;
+
+.homesContainer .bot .botcontainer .div2 h2 {
+    color: #e38800;
+    margin: 15px 0 10px 0;
 }
-.homesContainer .bot .botcontainer .div2 .open2{
-    background: #CE7C00;
+
+.homesContainer .bot .botcontainer .div2 .open2 {
+    background: #e38800;
     color: white;
-    margin:20px 15px 19px 15px ;
+    margin: 20px 15px 19px 15px;
+    padding: 3px;
+    border-radius: 5px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
 }
-.homesContainer .bot .botcontainer .div3{
+
+.homesContainer .bot .botcontainer .div2 .open2:hover{
+    background: #a26100;
+}
+
+.homesContainer .bot .botcontainer .div3 {
     background: white;
     margin: 10px;
-    width: 17%;
-    height: 20vh;
+    width: 130px;
+    height: 130px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
 }
-.homesContainer .bot .botcontainer .div3 h1{
+
+.homesContainer .bot .botcontainer .div3:hover{
+    -webkit-box-shadow: 2px 3px 7px 0px #ade1ec;
+  -moz-box-shadow: 2px 3px 7px 0px rgba(173,225,236,1);
+  box-shadow: 2px 3px 7px 0px rgba(173,225,236,1);
+}
+
+.homesContainer .bot .botcontainer .div3 h1 {
     color: #939393;
     margin-top: 25px;
     padding-top: 10px;
     font-size: 50px;
 }
-.homesContainer .bot .botcontainer .div3 p{
+
+.homesContainer .bot .botcontainer .div3 p {
     color: #0077E5;
-    font-size: 10px;
+    font-size: 12px;
+    font-weight: 600;
     margin-bottom: 20px;
     padding-bottom: 10px;
+    
 }
-.homesContainer .bot .botcontainer .div4{
-    background: white;
-    margin: 10px;
-    width: 17%;
-    height: 20vh;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-}
-.homesContainer .bot .botcontainer .div4 h1{
-    color: #939393;
-    margin-top: 25px;
-    padding-top: 10px;
-    font-size: 50px;
-}
-.homesContainer .bot .botcontainer .div4 p{
-    color: #0077E5;
-    font-size: 10px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-}
-.homesContainer .bot .botcontainer .div5{
-    background: white;
-    margin: 10px 0 10px 10px;
-    width: 17%;
-    height: 20vh;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-}
-.homesContainer .bot .botcontainer .div5 h1{
-    color: #939393;
-    margin-top: 25px;
-    padding-top: 10px;
-    font-size: 50px;
-}
-.homesContainer .bot .botcontainer .div5 p{
-    color: #0077E5;
-    font-size: 10px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-}
+
