@@ -5,7 +5,11 @@ const initialState = {
   value: 0,
   country:'',
   city:'',
-  myname:''
+  myname:'',
+  
+  day:'',
+  month:'',
+  year:'',
 }
 
 
@@ -35,6 +39,7 @@ export const getCountry = createAsyncThunk(
 ); */
 
 
+
 export const getweatherslice = createSlice({
     name: 'getweatherslice',
     initialState,
@@ -45,9 +50,61 @@ export const getweatherslice = createSlice({
         },
 
 
-        changeMyname:(state, action)=>{
+        SetDateTime:(state, action)=>{
+          var date = new Date();
+          var month = date.getMonth();
+          var year = date.getFullYear();
+
+          var setmonth = '';
+
+          switch (month) {
+            case 0:
+              setmonth="January";
+              break;
+            case 1:
+              setmonth="February";
+              break;
+            case 2:
+              setmonth="March";
+              break;
+            case 3:
+              setmonth="April";
+              break;
+            case 4:
+              setmonth="May";
+              break;
+            case 5:
+              setmonth="June";
+              break;
+            case 6:
+              setmonth="July";
+              break;
+            case 7:
+              setmonth="August";
+              break;
+            case 8:
+              setmonth="September";
+              break;
+            case 9:
+              setmonth="October";
+              break;
+            case 10:
+              setmonth="November";
+              break;
+            case 11:
+              setmonth="December";
+              break;
+          }
+
           state.myname=action.payload
+          state.day=date.getDate(),
+          state.month=setmonth,
+          state.year=year
+          
         },
+
+
+
   },
     
     
@@ -77,5 +134,5 @@ export const getweatherslice = createSlice({
 })
 
 
-export const { changeMyname } = getweatherslice.actions;
+export const { changeMyname, SetDateTime } = getweatherslice.actions;
 export default getweatherslice.reducer
