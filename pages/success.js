@@ -12,7 +12,7 @@ function success() {
   const dispatch = useDispatch();
 
   const [info, setInfos]=useState(null);
-  const [time, settime] = useState(4);
+  const [time, settime] = useState(2);
 
   const { data: session, status } = useSession({
     required:true
@@ -36,7 +36,9 @@ function success() {
   }
 
   return (
-    <div><h1>Number {time}</h1></div>
+    <div style={{
+      margin:"0 auto"
+    }}><center><h1>Welcome</h1></center></div>
   );
 }
 

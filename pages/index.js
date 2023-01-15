@@ -1,17 +1,15 @@
 import { react, useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from 'next/router';
-import {AiOutlineEyeInvisible, AiOutlineEye} from "react-icons/ai";
-import {FaUserCircle} from "react-icons/fa"
+import { useRouter } from "next/router";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import { FaUserCircle } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { SetDateTime, getCountry } from "../features/weatherApi/getweather";
 import { signIn } from "next-auth/react";
 
-
 import classes from "../styles/login/App.module.css";
 
 export default function Home() {
-  
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -22,49 +20,40 @@ export default function Home() {
   const thismonth = useSelector((state) => state.getcountryinfo.month);
   const token = useSelector((state) => state.loginreducer.access);
 
-  
-
   const [time, setTime] = useState("");
   const [period, setperiod] = useState("");
   const [viewpass, setViewpass] = useState(0);
-  const [hidepass, setHide] = useState("none")
-  const [showpass, setShow] = useState("block")
-  const [passType, setPasstype] = useState("password")
+  const [hidepass, setHide] = useState("none");
+  const [showpass, setShow] = useState("block");
+  const [passType, setPasstype] = useState("password");
 
   const [weather, setweather] = useState("");
   const [weathericon, setweathericon] = useState("");
 
-
   //Login states
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     dispatch(getCountry());
     dispatch(SetDateTime());
     //getallweather();
-  },[]);
+  }, []);
 
-
-
-
-  const checkPassword =  () => {
-      if(viewpass){
-        setViewpass(0);
-        setShow("block")
-        setHide("none")
-        setPasstype("password")
-
-      }else{
-        setViewpass(1);
-        setShow("none")
-        setHide("block")
-        setPasstype("text")
-      }
-  }
-
+  const checkPassword = () => {
+    if (viewpass) {
+      setViewpass(0);
+      setShow("block");
+      setHide("none");
+      setPasstype("password");
+    } else {
+      setViewpass(1);
+      setShow("none");
+      setHide("block");
+      setPasstype("text");
+    }
+  };
 
   //Login form
 
@@ -77,20 +66,17 @@ export default function Home() {
       redirect: false,
     });
 
-
     console.log(res);
 
-    if(res.ok){
-        router.push('/success')
-    }else{
-        console.log("Not Signin")
+    if (res.ok) {
+      router.push("/success");
+    } else {
+      console.log("Not Signin");
     }
-
   };
 
   //Get Weather
 
-  
   // const getallweather = () => {
   //   if (localStorage.getItem("city") === null) {
   //     console.log("No city Setted");
@@ -113,10 +99,10 @@ export default function Home() {
   //   }
   // };
 
-
   setInterval(() => {
     var date = new Date();
-    var fullclock =date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    var fullclock =
+      date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
     var hour = date.getHours();
     let periodtime = "";
 
@@ -128,8 +114,6 @@ export default function Home() {
     setTime(fullclock);
     setperiod(periodtime);
   }, 500);
-
-
 
   return (
     <div className={classes.maincontainer}>
@@ -169,7 +153,10 @@ export default function Home() {
                 20
                 <sup>0</sup>
               </h1>
-              <img src="https://www.seekpng.com/png/detail/64-641628_clouds-and-sun-weather-icon-png-clip-art.png" alt="Weather icon" />
+              <img
+                src="https://www.seekpng.com/png/detail/64-641628_clouds-and-sun-weather-icon-png-clip-art.png"
+                alt="Weather icon"
+              />
             </div>
           </div>
         </div>
@@ -189,38 +176,52 @@ export default function Home() {
 
         <div className={classes.RightMiddle}>
           <div className={classes.Username}>
-            <input type="text" placeholder="Username" value={username} onChange={(e)=>{
-              setUsername(e.target.value)
-            }}/>
-            
-            
-            <FaUserCircle style={{
-              fontSize:"20px",
-              color:"#0069CB",
-            }}/>
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+            />
+
+            <FaUserCircle
+              style={{
+                fontSize: "20px",
+                color: "#0069CB",
+              }}
+            />
           </div>
 
           <div className={classes.Password}>
-            <input type={passType} placeholder="Password" value={password} onChange={(e)=>{
-              setPassword(e.target.value)
-            }}/>
-            
-            
-            
-            <AiOutlineEye style={{
-              fontSize:"23px",
-              color:"#0069CB",
-              cursor:"pointer",
-              display:showpass
-            }} onClick={checkPassword}/>
+            <input
+              type={passType}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
 
-            <AiOutlineEyeInvisible style={{
-              fontSize:"23px",
-              color:"#0069CB",
-              cursor:"pointer",
-              display:hidepass
-            }} onClick={checkPassword}/>
+            <AiOutlineEye
+              style={{
+                fontSize: "23px",
+                color: "#0069CB",
+                cursor: "pointer",
+                display: showpass,
+              }}
+              onClick={checkPassword}
+            />
 
+            <AiOutlineEyeInvisible
+              style={{
+                fontSize: "23px",
+                color: "#0069CB",
+                cursor: "pointer",
+                display: hidepass,
+              }}
+              onClick={checkPassword}
+            />
           </div>
 
           <div className={classes.loginfo}>
