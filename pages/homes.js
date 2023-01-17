@@ -4,6 +4,8 @@ import Button from "@mui/material/Button";
 import { useRouter } from "next/router";
 import { add_infos } from "../features/userinfos/userinfos.js";
 import Stack from "@mui/material/Stack";
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import Head from 'next/head'
 
 import { useSelector, useDispatch } from "react-redux";
 import { useSession, signIn, signOut } from "next-auth/react";
@@ -71,6 +73,9 @@ export default function homes() {
   if (status === "authenticated") {
     return (
       <div className={classes.homesContainer}>
+        <Head>
+        <title>Welcome</title>
+      </Head>
         <div className={classes.top}>
           <div className={classes.photoSet}>
             <img src="/profilePic.png" alt="user profile" />
@@ -93,12 +98,12 @@ export default function homes() {
             }}>
               <Button variant="contained">Continue</Button>
             </Link>
-            <Button variant="outlined" onClick={() => signOut()}>
+            <Button variant="outlined" color="error" startIcon={<ExitToAppIcon />} onClick={() => signOut()}>
               Logout
             </Button>
           </Stack>
         </div>
-        <div className={classes.mid}>
+        {/* <div className={classes.mid}>
           <h3>Use mobile here</h3>
           <div className={classes.mobileAvailable}>
             <img
@@ -112,7 +117,7 @@ export default function homes() {
               className={classes.google}
             />
           </div>
-        </div>
+        </div> */}
         <div className={classes.bot}>
           <h2>Quick start Here</h2>
           <p>Here you create easy short to open some functions</p>

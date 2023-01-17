@@ -9,6 +9,7 @@ import { SetDateTime, getCountry } from "../features/weatherApi/getweather";
 import { signIn } from "next-auth/react";
 import Button from "@mui/material/Button";
 import { SnackbarProvider, useSnackbar } from "notistack";
+import Head from 'next/head'
 
 import classes from "../styles/login/App.module.css";
 
@@ -135,6 +136,9 @@ function Home() {
 
   return (
     <div className={classes.maincontainer}>
+      <Head>
+        <title>Login page</title>
+      </Head>
       <div className={classes.LeftDiv}>
         <div className={classes.InfoDiv}>
           <div className={classes.igihe}>

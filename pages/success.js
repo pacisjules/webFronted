@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getUser_infos, add_infos } from "../features/userinfos/userinfos.js";
 import { useSession, signIn, signOut } from "next-auth/react";
 import axios from "axios";
-
+import Head from 'next/head'
 function success() {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -45,6 +45,9 @@ function success() {
         height:'100vh',
       }}
     >
+      <Head>
+        <title>Loading</title>
+      </Head>
      
         <img src="/DoubleRing.gif" alt="user profile" width='130px'/>
         <h1 style={{
