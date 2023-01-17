@@ -1,4 +1,5 @@
 import { react, useState, useEffect } from "react";
+import * as React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
@@ -6,10 +7,12 @@ import { FaUserCircle } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { SetDateTime, getCountry } from "../features/weatherApi/getweather";
 import { signIn } from "next-auth/react";
+import Button from "@mui/material/Button";
+import { SnackbarProvider, useSnackbar } from "notistack";
 
 import classes from "../styles/login/App.module.css";
 
-export default function Home() {
+function Home() {
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -20,6 +23,7 @@ export default function Home() {
   const thismonth = useSelector((state) => state.getcountryinfo.month);
   const token = useSelector((state) => state.loginreducer.access);
 
+  const { enqueueSnackbar } = useSnackbar();
   const [time, setTime] = useState("");
   const [period, setperiod] = useState("");
   const [viewpass, setViewpass] = useState(0);
@@ -55,23 +59,37 @@ export default function Home() {
     }
   };
 
+  const handleClickVariant = (variant) => () => {
+    // variant could be success, error, warning, info, or default
+    enqueueSnackbar("This is a success message!", { variant });
+  };
+
   //Login form
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const res = await signIn("credentials", {
-      username,
-      password,
-      redirect: false,
-    });
-
-    console.log(res);
-
-    if (res.ok) {
-      router.push("/success");
+    if (username === "") {
+      enqueueSnackbar("Please enter your username", { variant: "error" });
+    } else if (password === "") {
+      enqueueSnackbar("Please enter your password", { variant: "error" });
     } else {
-      console.log("Not Signin");
+      const res = await signIn("credentials", {
+        username,
+        password,
+        redirect: false,
+      });
+
+      console.log(res);
+
+      if (res.ok) {
+        router.push("/success");
+      } else {
+        enqueueSnackbar("Login failed username or password are not correct ?", {
+          variant: "warning",
+        });
+        console.log("Not Signin");
+      }
     }
   };
 
@@ -129,9 +147,9 @@ export default function Home() {
             </h3>
           </div>
 
-          <div className={classes.logodiv}>
-            <h1>Logo Here</h1>
-          </div>
+          {/* <div className={classes.logodiv}>
+            <h1></h1>
+          </div> */}
 
           <div className={classes.weatherDiv}>
             <div className={classes.lft}>
@@ -165,12 +183,11 @@ export default function Home() {
         <div className={classes.RightTop}>
           <div className={classes.SoftLogo}></div>
 
-          <h1>Hello Again!</h1>
+          <h1>Login.</h1>
 
           <p>
             In publishing and graphic design, Lorem ipsum is a placeholder text
-            commonly used to demonstrate the visual form of a document or a
-            typeface without relying on meaningful content.
+            commonly used to demonstrate.
           </p>
         </div>
 
@@ -242,14 +259,27 @@ export default function Home() {
           {token}
         </div>
 
+        {/* <React.Fragment>
+          <Button onClick={handleClickVariant("warning")}>
+            Show success snackbar
+          </Button>
+        </React.Fragment> */}
+
         <div className={classes.RightBottom}>
           <p>Don’t have account yet?</p>
-
           <p>
             <Link href="/homes">Please ask administrators to register you</Link>
           </p>
         </div>
       </div>
     </div>
+  );
+}
+
+export default function IntegrationNotistack() {
+  return (
+    <SnackbarProvider maxSnack={3}>
+      <Home />
+    </SnackbarProvider>
   );
 }

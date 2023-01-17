@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import classes from "../styles/homes/Homes.module.css";
-import { setlogout } from "../features/login/login";
+import Button from "@mui/material/Button";
 import { useRouter } from "next/router";
 import { add_infos } from "../features/userinfos/userinfos.js";
+import Stack from "@mui/material/Stack";
 
 import { useSelector, useDispatch } from "react-redux";
 import { useSession, signIn, signOut } from "next-auth/react";
@@ -35,7 +36,6 @@ export default function homes() {
   const role = useSelector((state) => state.user_infosred.role);
 
   setInterval(() => {
-    
     var date = new Date();
     var hour = date.getHours();
 
@@ -53,11 +53,7 @@ export default function homes() {
     setperiod(periodtime);
   }, 500);
 
-
-
-
-  const getrealgreat = () =>{
-
+  const getrealgreat = () => {
     var date = new Date();
     var hour = date.getHours();
 
@@ -70,9 +66,7 @@ export default function homes() {
     } else {
       setGreetings("Good Morning");
     }
-  }
-
-
+  };
 
   if (status === "authenticated") {
     return (
@@ -83,21 +77,26 @@ export default function homes() {
           </div>
 
           <h2>
-            {greeting},
-            <br /> {first_name} {second_name}
+            {greeting},{first_name} {second_name}
           </h2>
 
           <p className={classes.currentTime}>
             {role} Role type, {time} {period}
           </p>
 
-          <p className={classes.appDescription}>
-            In publishing and graphic design, Lorem ipsum is a placeholder text
-            commonly used to demonstrate the visual form of a document or a
-            typeface without relying on meaningful content.
-          </p>
-
-          <button onClick={() => signOut()}>Logout as {username}</button>
+          <p className={classes.appDescription}>Welcome in system</p>
+          <br />
+          {/* <button onClick={() => signOut()}>Logout as {username}</button> */}
+          <Stack spacing={2} direction="row">
+            <Link href="/Dashboard" style={{
+              textDecoration:'none'
+            }}>
+              <Button variant="contained">Continue</Button>
+            </Link>
+            <Button variant="outlined" onClick={() => signOut()}>
+              Logout
+            </Button>
+          </Stack>
         </div>
         <div className={classes.mid}>
           <h3>Use mobile here</h3>

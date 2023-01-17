@@ -4,7 +4,7 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -93,7 +93,7 @@
 }
 
 .homesContainer .mid .mobileAvailable img{
-    width: 150px;
+    width: 110px;
 }
 
 

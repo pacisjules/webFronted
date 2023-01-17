@@ -1,9 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { useSession, signIn, signOut } from "next-auth/react";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
 
-function dashboard() {
-  return (
-    <div>dashboard</div>
-  )
+
+
+const Dashboard = () => {
+  const { data: session, status } = useSession({
+    required: true,
+  });
+
+    return (
+        <div>
+            Dashboard
+        </div>
+    );
 }
 
-export default dashboard
+export default Dashboard;
