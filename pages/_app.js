@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps, session }) {
     return (
       <SessionProvider session={session}>
         <Provider store={store}>
-        <NextNProgress color="green" startPosition={0.3} stopDelayMs={200} height={3} showOnShallow={true} />
+        <NextNProgress color="#29D" startPosition={0.3} stopDelayMs={200} height={3} showOnShallow={true} />
           <Component {...pageProps} />
         </Provider>
       </SessionProvider>
