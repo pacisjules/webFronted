@@ -1,10 +1,55 @@
 .main {
+  flex: 1;
   width: 100%;
   height: 100vh;
   background-color: transparent;
   padding: 0;
   margin: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  float: right;
+  background-color: #eafeff;
+}
+
+
+.addform {
+  background-color: white;
+  width: 50%;
+  height: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px -1px 24px -3px rgba(0,0,0,0.54);
+-webkit-box-shadow: 2px -1px 24px -3px rgba(0,0,0,0.54);
+-moz-box-shadow: 2px -1px 24px -3px rgba(0,0,0,0.54);
+display: flex;
+flex-direction: column;
+justify-content:space-between;
+
+}
+
+
+.topintro {
+  width: 50%;
+  text-align: center;
+}
+
+.topintro h1 {
+  font-weight: bolder;
+  font-size: 45px;
+  color: #0054A1;
+  margin: 5px;
+}
+
+.topintro h2 {
+  font-weight: bolder;
+  font-size: 25px;
+  color: #4B4B4B;
+}
+
+.topintro p {
+  font-weight: 400;
+  font-size: 15px;
+  color: #4B4B4B;
+  margin: 5px;
 }

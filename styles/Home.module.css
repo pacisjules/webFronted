@@ -1,0 +1,41 @@
+.mainall{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.mainall .top{
+    flex: 1;
+    width: 100%;
+    height: 10%;
+    background-color: white;
+}
+
+.mainall .bottom{
+    flex: 10;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.mainall .bottom .bottomLeft{
+    width: 20%;
+    background-color: aquamarine;
+    height: 100%;
+}
+
+
+.mainall .bottom .bottomRight{
+    width: 80%;
+    height: 100%;
+}
+
+
+.menubtn{
+    background-color: #9f7fff;
+    width: 80px;
+}

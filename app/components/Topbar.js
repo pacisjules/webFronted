@@ -192,7 +192,8 @@ function Topbar() {
         backgroundColor: '#001621',
         boxShadow:'none',
         zIndex:'1',
-        width:'85%'
+        width:'100%',
+        height:'10%'
       }}>
         <Toolbar>
           <IconButton
