@@ -10,6 +10,7 @@ export const authOptions = {
       credentials: {},
 
       async authorize(credentials, req) {
+        
         const baseUrl = process.env.BACKEND_URL;
         
         var bodyFormData = new FormData();

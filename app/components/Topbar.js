@@ -60,7 +60,7 @@ const Search = styled('div')(({ theme }) => ({
       transition: theme.transitions.create('width'),
       width: '100%',
       [theme.breakpoints.up('md')]: {
-        width: '20ch',
+        width: '70ch',
       },
     },
   }));
@@ -187,10 +187,12 @@ function Topbar() {
 
   return (
     <>
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{
+    <Box sx={{ flexGrow: 1, width:'100%' }} >
+      <AppBar position="fixed" sx={{
         backgroundColor: '#001621',
-        boxShadow:'none'
+        boxShadow:'none',
+        zIndex:'1',
+        width:'85%'
       }}>
         <Toolbar>
           <IconButton

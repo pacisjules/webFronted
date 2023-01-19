@@ -75,6 +75,7 @@ function Home() {
     } else if (password === "") {
       enqueueSnackbar("Please enter your password", { variant: "error" });
     } else {
+      
       const res = await signIn("credentials", {
         username,
         password,
