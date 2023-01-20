@@ -21,7 +21,9 @@ function success() {
     const response = await axios.get(Urls, {
       headers: { Authorization: `Bearer ${session.user.token}` },
     });
+
     localStorage.setItem("userinfos", JSON.stringify(response.data));
+    //localStorage.setItem("sgn", response.access_token);
   };
 
   const interval = setInterval(() => {

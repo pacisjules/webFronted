@@ -18,8 +18,6 @@ export const getUser_infos = createAsyncThunk(
 );
 
 const baseUrl = "http://127.0.0.1:8000/addsection";
-
-
 export const AddSection = createAsyncThunk(
   "sections/AddSection",
   async (data) => {
@@ -32,6 +30,29 @@ export const AddSection = createAsyncThunk(
   }
 );
 
+
+
+export const DeleteSection = createAsyncThunk(
+  "sections/Delete",
+  async (data) => {
+    try {
+
+
+      const delurl="http://127.0.0.1:8000/Delete_section/"+data.Did;
+      const response = await axios.delete(delurl,{
+        headers: { Authorization: `Bearer ${data.tkn}` },
+      });
+      console.log(response);
+      return response.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+);
+
+
+
+
 const initialState = {
   value: 0,
   Userinfos: null,
@@ -40,6 +61,7 @@ const initialState = {
   second_name: "",
   role: "",
   msg:null,
+  sectionstbl:[]
 };
 
 export const sections = createSlice({
@@ -50,6 +72,11 @@ export const sections = createSlice({
     change_msg: (state, action) => {
       state.msg = action.payload;
     },
+
+    getsections:(state, action)=>{
+      state.sectionstbl=action.payload.items;
+    }
+
   },
 
   extraReducers: (builder) => {
@@ -57,12 +84,19 @@ export const sections = createSlice({
 
     builder.addCase(AddSection.fulfilled, (state, action) => {
       state.msg = action.payload.Message;
-      console.log(action.payload);
     });
 
-    builder.addCase(AddSection.rejected, (state) => {});
+    builder.addCase(DeleteSection.fulfilled, (state, action) => {
+      console.log(action.payload)
+    });
   },
+
+
+
+
+
+
 });
 
-export const { change_msg } = sections.actions;
+export const { change_msg, getsections } = sections.actions;
 export default sections.reducer;

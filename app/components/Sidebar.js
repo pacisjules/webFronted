@@ -46,7 +46,7 @@ function Sidebar() {
         borderRadius: "10px",
         width: "90%",
         height: "40px",
-        marginLeft: "20px",
+        marginLeft: "13px",
         marginTop: "10px",
         position:"relative",
         
@@ -98,7 +98,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
         width: "20%",
         bgcolor: "white",
         height: "100%",
-        boxShadow: "11px 5px 10px 0px rgba(0,0,0,0.03)",
+       // boxShadow: "11px 5px 10px 0px rgba(0,0,0,0.03)",
         position: "fixed",
         overflowY:"scroll",
         // display: "flex",
@@ -108,7 +108,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
       component="nav"
       aria-labelledby="nested-list-subheader"
     >
-      <center>
+      {/* <center>
       <img
         src="/profilePic.png"
         alt="user profile"
@@ -117,7 +117,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
           marginLeft: "auto",
           marginBottom: "15px",
         }}
-      /></center>
+      /></center> */}
 
       <ListItemButton sx={ListbtnStyle.btn}>
 

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import classes from "../../../styles/section/App.module.css";
 import Addform from "./Addform";
 import Datatable from "./Datatable"
+import Link from "next/link";
+
 export default function Section() {
 
   return (
@@ -13,8 +15,21 @@ export default function Section() {
           text commonly used to demonstrate the visual form of a document
           or a typeface without relying on meaningful content.</p>
       </div>
+
+      <br/>
+      <div className={classes.btnlink}>
+        <Link href="/usermanagements/sectionside/AddingForm" >
+        <button>ADD NEW SECTION</button>
+      </Link>
+      </div>
+      
+      <br/>
+
+
       {/* <Addform /> */}
-      <Datatable/>
+
+
+      <Datatable />
     </div>
   )
 }
