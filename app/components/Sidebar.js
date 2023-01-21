@@ -288,7 +288,13 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
             <ListItemIcon>
               <GroupIcon sx={ListbtnStyle.iconStyle}/>
             </ListItemIcon>
-            <ListItemText disableTypography
+            <Link
+              href="/usermanagements/group/Group"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              <ListItemText disableTypography
             primary={
               <Typography
                 type="body2"
@@ -300,6 +306,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
                 Group
               </Typography>
             } />
+            </Link>
           </ListItemButton>
 
           <ListItemButton sx={{ pl: 4 }}>
