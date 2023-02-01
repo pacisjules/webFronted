@@ -31,7 +31,7 @@
 
 
 .topintro {
-  width: 50%;
+  width: 80%;
   text-align: center;
 }
 
@@ -68,7 +68,15 @@
   cursor: pointer;
 }
 
-
+.currentinfo{
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: "Inter";
+  height: 50%;
+  margin-top: 3rem;
+  padding-top: 2rem;
+}
 .askdelete{
   background-color: #00000078;
   width: 100%;

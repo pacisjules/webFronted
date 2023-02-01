@@ -80,7 +80,8 @@ function Datatable() {
             onClick={()=>{
                 router.push({
                     pathname: '/usermanagements/group/[View]',
-                    query: { View: params.id }
+                    query: { View: params.id },
+                    
                 })
                 
             }}
@@ -130,6 +131,8 @@ function Datatable() {
      setOpenaskmsg('none')
      enqueueSnackbar(`Group deleted successfully`, { variant: "success" });
   }
+
+
   
   
   const datarow = Loaddatas.map((item) => ({
