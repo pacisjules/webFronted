@@ -94,9 +94,11 @@ function Datatable() {
             }}
 
             onClick={()=>{
-                console.log(params.id);
-                console.log(params.section_name);
-                console.log(params.description);
+              router.push({
+                pathname: '/usermanagements/group/edit/[Edit]',
+                query: { Edit: params.id },
+                
+            })
             }}
 
             />

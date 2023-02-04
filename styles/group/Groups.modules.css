@@ -1,0 +1,141 @@
+.main {
+    flex: 1;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    float: right;
+    background-color: #eafeff;
+  }
+  
+  
+  .addform {
+    background-color: white;
+    width: 50%;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px -1px 24px -3px rgba(0, 0, 0, 0.54);
+    -webkit-box-shadow: 2px -1px 24px -3px rgba(0, 0, 0, 0.54);
+    -moz-box-shadow: 2px -1px 24px -3px rgba(0, 0, 0, 0.54);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+  }
+  
+  
+  .topintro {
+    width: 80%;
+    text-align: center;
+  }
+  
+  .topintro h1 {
+    font-weight: bolder;
+    font-size: 45px;
+    color: #003E58;
+    margin: 5px;
+    margin-top: 30px;
+  }
+  
+  .topintro h2 {
+    font-weight: bolder;
+    font-size: 25px;
+    color: #4B4B4B;
+  }
+  
+  .topintro p {
+    font-weight: 400;
+    font-size: 15px;
+    color: #4B4B4B;
+    margin: 5px;
+  }
+  
+  .main .btnlink button{
+    background-color: #003E58;
+    color: white;
+    outline: none;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: "Inter";
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .currentinfo{
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: "Inter";
+    height: 50%;
+    margin-top: 3rem;
+    padding-top: 2rem;
+  }
+  .askdelete{
+    background-color: #00000078;
+    width: 100%;
+    height: 100vh;
+    z-index: 900;
+    position: fixed;
+    top:0;
+    left:0;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .askdelete .msgbox{
+    width: 50%;
+    height: auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 1px 2px 15px 4px rgba(0,0,0,0.45);
+  -webkit-box-shadow: 1px 2px 15px 4px rgba(0,0,0,0.45);
+  -moz-box-shadow: 1px 2px 15px 4px rgba(0,0,0,0.45);
+    
+  }
+  
+  .askdelete .msgbox .msgboxTop{
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .askdelete .msgbox .msgboxTop h1{
+    color: #0054A1;
+    width: 70%;
+  }
+  
+  .askdelete .msgbox .msgboxTop  p{
+    padding: 10px;
+    color: #878787;
+  }
+  
+  .msgboxTopIconBox{
+    width: 80px;
+    height: 80px;
+    background-color: #D21900;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0px 1px 7px 2px rgba(0,0,0,0.31);
+    -webkit-box-shadow: 0px 1px 7px 2px rgba(0,0,0,0.31);
+    -moz-box-shadow: 0px 1px 7px 2px rgba(0,0,0,0.31);
+  }

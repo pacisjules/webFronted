@@ -29,6 +29,20 @@ export const AddGroup = createAsyncThunk(
     }
   }
 );
+const updateUrl = "http://127.0.0.1:8000/group_update";
+export const UPDATEGroup = createAsyncThunk(
+  "groups/UpdateGroup",
+  async (data) => {
+    try {
+      const response = await axios.put(updateUrl, {
+        headers: { Authorization: `Bearer ${data.tkn}` },
+      });
+      return response.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+);
 
 
 
@@ -82,7 +96,7 @@ const initialState = {
   groupdtl:[],
   descript: "",
   statu: "",
-  datecreate: "",
+  groupnames: "",
 };
 
 export const groups = createSlice({
@@ -106,8 +120,8 @@ export const groups = createSlice({
     // getstatus:(state,action)=>{
     //   state.statu=action.payload;
     // },
-    // getdateCreated:(state,action)=>{
-    //   state.datecreate=action.payload;
+    // getgroupname:(state,action)=>{
+    //   state.groupnames=action.payload;
     // },
 
 
@@ -126,10 +140,10 @@ export const groups = createSlice({
     builder.addCase(DeleteGroup.fulfilled, (state, action) => {
       console.log(action.payload)
     });
-    // builder.addCase(CurrentGroupDetails.fulfilled, (state, action) => {
-    //   state.groupdetailform = action.payload.items;
-    //   console.log(action.payload);
-    // });
+    builder.addCase(UPDATEGroup.fulfilled, (state, action) => {
+      state.msg = action.payload.Message;
+      console.log(action.payload);
+    });
 
   },
 
@@ -140,5 +154,5 @@ export const groups = createSlice({
 
 });
 
-export const { change_msg, getgroups, getgroupdetail} = groups.actions;
+export const { change_msg, getgroups, getgroupdetail,} = groups.actions;
 export default groups.reducer;
