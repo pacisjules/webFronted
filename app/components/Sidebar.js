@@ -25,6 +25,7 @@ import LockPersonIcon from "@mui/icons-material/LockPerson";
 import PersonIcon from "@mui/icons-material/Person";
 import Link from "next/link";
 import Typography from "@mui/material/Typography";
+
 function Sidebar() {
   const [open, setOpen] = React.useState(false);
   const [UserManagement, setUserManagement] = React.useState(false);
@@ -37,9 +38,9 @@ function Sidebar() {
     setUserManagement(!UserManagement);
   };
 
+
   const ListbtnStyle = {
     
-
     btn:{
 
        backgroundColor: "#DBEEFF",
@@ -218,6 +219,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
                 Customers
               </Typography>
             } />
+
       </ListItemButton>
 
       <ListItemButton sx={ListbtnStyle.btn}>
@@ -269,7 +271,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
                 textDecoration: "none",
               }}
             >
-              <ListItemText disableTypography
+            <ListItemText disableTypography
             primary={
               <Typography
                 type="body2"

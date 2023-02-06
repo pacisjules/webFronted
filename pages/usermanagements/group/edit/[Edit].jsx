@@ -1,5 +1,4 @@
 import React,{ useEffect,useState } from 'react'
-import { useRouter } from 'next/router';
 import axios from 'axios';
 import classes from "../../../../styles/section/App.module.css";
 //import classes from "../../../../styles/group/Groups.modules.css";
@@ -10,16 +9,17 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function Edit () {
-    // const [LoadDatas, setLoadDatas] = useState([]);
+    
+  // const [LoadDatas, setLoadDatas] = useState([]);
     const { enqueueSnackbar } = useSnackbar();
 
     const [groupname, setGroupname] = useState("");
     const [groupdescr, setGroupdescr] = useState("");
     const [groupstatus, setGroupstatus] = useState("");
    
-
     const [groupnameError, SetGroupnameError] = useState(false);
     const [groupdescrerror, setGroupdescrerro] = useState(false);
     const [groupstatuserror, setGroupstatuserro] = useState(false);
@@ -110,13 +110,16 @@ function Edit () {
         dispatch(UPDATEGroup({infos, tkn}));
 
         enqueueSnackbar(`${groupname} has been updated`, { variant: "success" });
-       
+        
 
         SetGroupnameError(false);
         SetgroupnameLabel("");
   
         setGroupdescrLabel("");
         setGroupdescrerro(false);
+
+        router.push('/usermanagements/group/Group');
+
       }
     };
 
@@ -156,7 +159,7 @@ function Edit () {
                   setGroupdescrerro(false);
               }}
         />
-        {Edit}
+       
         <br/>
         <TextField
               id="outlined-basic"

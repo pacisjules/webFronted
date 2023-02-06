@@ -36,17 +36,17 @@ export const UPDATEGroup = createAsyncThunk(
   async (data) => {
    
     try {
+
       const response = await axios.put(updateUrl, data.infos,{
         headers: { Authorization: `Bearer ${data.tkn}` },
       } );
+
       return response.data;
     } catch (err) {
       console.error(err);
     }
   }
 );
-
-
 
 export const DeleteGroup = createAsyncThunk(
   "groups/Delete",
