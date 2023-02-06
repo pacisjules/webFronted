@@ -71,33 +71,6 @@ function Datatable() {
           <div>
             {" "}
 
-            <DeleteForeverIcon  sx={{
-              color:"#fc033d",
-              marginLeft:"10px",
-              cursor:'pointer'
-            }} onClick={()=>{
-
-              setOpenaskmsg('flex');
-              setCurrentID(params.id);
-              setSectName(params.section_name);
-            }}/>
-
-
-
-            <EditIcon sx={{
-              color:"#0362fc",
-              marginLeft:"10px",
-              cursor:'pointer'
-            }}
-
-            onClick={()=>{
-              console.log(params.id);
-              console.log(params.section_name);
-              console.log(params.description);
-            }}
-
-            />
-
             <VisibilityIcon sx={{
               color:"#3eb300",
               marginLeft:"10px",
@@ -110,8 +83,33 @@ function Datatable() {
             })
 
             }}
-
             />
+
+              <EditIcon sx={{
+                   color:"#0362fc",
+                   marginLeft:"10px",
+                   cursor:'pointer'
+                }}
+
+                onClick={()=>{
+                 router.push({
+                 pathname: '/usermanagements/sectionside/edit/[Edit]',
+                 query: { Edit: params.id },
+                
+               })
+                }}/>
+
+            <DeleteForeverIcon  sx={{
+              color:"#fc033d",
+              marginLeft:"10px",
+              cursor:'pointer'
+            }} onClick={()=>{
+
+              setOpenaskmsg('flex');
+              setCurrentID(params.id);
+              setSectName(params.section_name);
+            }}/>
+
           </div>
         );
       },

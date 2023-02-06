@@ -29,6 +29,23 @@ export const AddSection = createAsyncThunk(
     }
   }
 );
+const updateUrl= "http://127.0.0.1:8000/section_update"
+export const UPDATEsection = createAsyncThunk(
+  "groups/UpdateSection",
+  async (data) => {
+   
+    try {
+
+      const response = await axios.put(updateUrl, data.infos,{
+        headers: { Authorization: `Bearer ${data.tkn}` },
+      } );
+
+      return response.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+);
 
 
 
@@ -61,7 +78,8 @@ const initialState = {
   second_name: "",
   role: "",
   msg:null,
-  sectionstbl:[]
+  sectionstbl:[],
+  detailsection:[]
 };
 
 export const sections = createSlice({
@@ -75,8 +93,10 @@ export const sections = createSlice({
 
     getsections:(state, action)=>{
       state.sectionstbl=action.payload.items;
+    },
+    getsectiondetail:(state, action)=>{
+      state.detailsection= action.payload;
     }
-
   },
 
   extraReducers: (builder) => {
@@ -89,6 +109,11 @@ export const sections = createSlice({
     builder.addCase(DeleteSection.fulfilled, (state, action) => {
       console.log(action.payload)
     });
+
+    builder.addCase(UPDATEsection.fulfilled, (state, action) => {
+      state.msg = action.payload.Message;
+      console.log(action.payload);
+    });
   },
 
 
@@ -98,5 +123,5 @@ export const sections = createSlice({
 
 });
 
-export const { change_msg, getsections } = sections.actions;
+export const { change_msg, getsections, getsectiondetail } = sections.actions;
 export default sections.reducer;

@@ -72,15 +72,7 @@ function Edit () {
   
    
     
-    // const getupdatedata = async()=>{
-    //  await  axios.put('http://127.0.0.1:8000/group_update/',{ headers: { Authorization: `Bearer ${session.user.token}` } },{
 
-    //    group_name:groupname,
-    //    description:groupdescr,
-    //    status:groupstatus
-    // })
-         
-    // };
     const updategroupfuc = (e) => {
       e.preventDefault();
   
