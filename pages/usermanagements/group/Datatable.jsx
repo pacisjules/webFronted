@@ -129,6 +129,7 @@ function Datatable() {
      const tkn = session.user.token;
      const Did = currentID;
      dispatch(DeleteGroup({Did, tkn}))
+     
      setLoadDatas((current) => current.filter((item) => item.group_id !== Did));
      setOpenaskmsg('none')
      enqueueSnackbar(`Group deleted successfully`, { variant: "success" });

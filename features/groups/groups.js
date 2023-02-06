@@ -30,13 +30,15 @@ export const AddGroup = createAsyncThunk(
   }
 );
 const updateUrl = "http://127.0.0.1:8000/group_update";
+
 export const UPDATEGroup = createAsyncThunk(
   "groups/UpdateGroup",
   async (data) => {
+   
     try {
-      const response = await axios.put(updateUrl, {
+      const response = await axios.put(updateUrl, data.infos,{
         headers: { Authorization: `Bearer ${data.tkn}` },
-      });
+      } );
       return response.data;
     } catch (err) {
       console.error(err);
@@ -50,8 +52,6 @@ export const DeleteGroup = createAsyncThunk(
   "groups/Delete",
   async (data) => {
     try {
-
-
       const delurl="http://127.0.0.1:8000/Delete_group/"+data.Did;
       const response = await axios.delete(delurl,{
         headers: { Authorization: `Bearer ${data.tkn}` },
@@ -140,6 +140,7 @@ export const groups = createSlice({
     builder.addCase(DeleteGroup.fulfilled, (state, action) => {
       console.log(action.payload)
     });
+
     builder.addCase(UPDATEGroup.fulfilled, (state, action) => {
       state.msg = action.payload.Message;
       console.log(action.payload);

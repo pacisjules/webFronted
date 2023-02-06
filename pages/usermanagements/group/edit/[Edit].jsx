@@ -92,14 +92,23 @@ function Edit () {
           setGroupdescrLabel("Add Description");
       } else {
        // whatever you want to send
-        const data = {
-          user_id: "630ab6ba-8622-11ed-bfa7-88532eef2751",
+
+       //group update variables with Backend
+        const infos = {
+          group_id: Edit,
+          user_id:localStorage.getItem('id'),
           group_name: groupname,
           description: groupdescr,
           status:groupstatus,
+          created_at: "string",
+          last_update_at:"string"
         };
-  
-        dispatch(UPDATEGroup());
+
+        const tkn = session.user.token;
+        
+        //group send variables to Redux
+        dispatch(UPDATEGroup({infos, tkn}));
+
         enqueueSnackbar(`${groupname} has been updated`, { variant: "success" });
        
 
@@ -147,6 +156,7 @@ function Edit () {
                   setGroupdescrerro(false);
               }}
         />
+        {Edit}
         <br/>
         <TextField
               id="outlined-basic"
