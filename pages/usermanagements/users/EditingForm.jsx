@@ -5,8 +5,12 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import classes from "../../../styles/section/App.module.css";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
-function Addform(props) {
+function EditingForm({Appname}) {
   const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
 
@@ -18,6 +22,13 @@ function Addform(props) {
 
   const [sectionnameLabel, SetsectionnameLabel] = useState("Section name");
   const [sectiondescrLabel, setSectiondescrLabel] = useState("Description");
+
+
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
 
   const addsectionfuc = (e) => {
     e.preventDefault();
@@ -67,6 +78,24 @@ function Addform(props) {
       />
       <br/>
 
+      <p>{Appname} sasa</p>
+
+
+<FormControl sx={{  minWidth: 120 }} size="small">
+      <InputLabel id="demo-select-small">Status</InputLabel>
+      <Select
+        labelId="demo-select-small"
+        id="demo-select-small"
+        value={age}
+        label="Status"
+        onChange={handleChange}
+      >
+        <MenuItem value={1}>Active</MenuItem>
+        <MenuItem value={0}>Disable</MenuItem>
+      </Select>
+    </FormControl>
+    <br/>
+
       <TextField
         id="filled-multiline-flexible"
         label={sectiondescrLabel}
@@ -83,10 +112,9 @@ function Addform(props) {
           dispatch(change_msg(null));
         }}
       />
-      <br/>
-
+<br/>
       <Button variant="contained" color="primary" size="large" onClick={addsectionfuc}>
-        Add section
+        Update section
       </Button>
     </div>
   );
@@ -95,7 +123,7 @@ function Addform(props) {
 export default function IntegrationNotistacks() {
   return (
     <SnackbarProvider maxSnack={3}>
-      <Addform />
+      <EditingForm />
     </SnackbarProvider>
   );
 }

@@ -327,6 +327,12 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
             } />
           </ListItemButton>
 
+          <Link
+              href="/usermanagements/users/Users"
+              style={{
+                textDecoration: "none",
+              }}
+            >
           <ListItemButton sx={{ pl: 4 }}>
             <ListItemIcon>
               <PersonIcon sx={ListbtnStyle.iconStyle}/>
@@ -344,6 +350,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
               </Typography>
             }/>
           </ListItemButton>
+          </Link>
         </List>
       </Collapse>
 

@@ -31,7 +31,7 @@ function Addform(props) {
     } else {
       // whatever you want to send
       const data = {
-        user_id: "630ab6ba-8622-11ed-bfa7-88532eef2751",
+        user_id: localStorage.getItem('id'),
         group_name: groupname,
         description: groupdescr,
       };

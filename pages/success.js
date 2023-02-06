@@ -23,7 +23,7 @@ function success() {
     });
 
     localStorage.setItem("userinfos", JSON.stringify(response.data));
-    //localStorage.setItem("sgn", response.access_token);
+    localStorage.setItem("id", response.data.user_id);
   };
 
   const interval = setInterval(() => {

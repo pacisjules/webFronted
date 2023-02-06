@@ -11,7 +11,7 @@ import { SnackbarProvider, useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 
 import { useSession, signIn, signOut } from "next-auth/react";
-import Asktodelete from "./Asktodelete.js";
+import Asktodelete from "./Asktodelete.jsx";
 
 function Datatable() {
 
