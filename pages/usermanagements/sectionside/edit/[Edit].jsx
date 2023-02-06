@@ -127,7 +127,7 @@ function Edit () {
     <div className={classes.main}>
       
       <div className={classes.topintro}>
-          <h1>Group Detail Information</h1>
+          <h1>Section Detail Information</h1>
           <p>Here are detail information about this group</p>
           <div className={classes.editform}>
             <TextField
