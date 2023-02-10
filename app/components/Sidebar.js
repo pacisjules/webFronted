@@ -29,6 +29,7 @@ import Typography from "@mui/material/Typography";
 function Sidebar() {
   const [open, setOpen] = React.useState(false);
   const [UserManagement, setUserManagement] = React.useState(false);
+  const [ProductManagement, setProductManagement] = React.useState(false);
 
   const handleClick = () => {
     setOpen(!open);
@@ -36,6 +37,10 @@ function Sidebar() {
 
   const handleUserManagement = () => {
     setUserManagement(!UserManagement);
+  };
+
+  const handleProduct = ()=>{
+    setProductManagement(!ProductManagement);
   };
 
 
@@ -120,6 +125,8 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
         }}
       /></center> */}
 
+      {/* Dashboard */}
+
       <ListItemButton sx={ListbtnStyle.btn}>
 
           
@@ -149,10 +156,19 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
         </Link>
       </ListItemButton>
 
+      {/* Inventory */}
+
       <ListItemButton sx={ListbtnStyle.btn}>
+      
         <ListItemIcon >
           <InventoryIcon sx={ListbtnStyle.iconStyle} className="dashIcon"/>
         </ListItemIcon>
+        <Link
+          href="/inventory/Inventory"
+          style={{
+            textDecoration: "none",
+          }}
+        >
         <ListItemText disableTypography
             primary={
               <Typography
@@ -165,7 +181,10 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
                 Inventory
               </Typography>
             }/>
+            </Link>
       </ListItemButton>
+
+      {/* SALES MODULE */}
 
       <ListItemButton sx={ListbtnStyle.btn}>
         <ListItemIcon >
@@ -185,10 +204,14 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
             } />
       </ListItemButton>
 
-      <ListItemButton sx={ListbtnStyle.btn}>
+       {/* PRODUCTS MODULE */}
+
+      <ListItemButton sx={ListbtnStyle.btn} onClick={handleProduct}>
+      
         <ListItemIcon >
           <ProductionQuantityLimitsOutlinedIcon sx={ListbtnStyle.iconStyle} className="dashIcon"/>
         </ListItemIcon>
+        
         <ListItemText disableTypography
             primary={
               <Typography
@@ -201,7 +224,68 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
                 Products
               </Typography>
             } />
+            {ProductManagement ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
+
+      <Collapse in={ProductManagement} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+        <Link
+              href="/productsmanagement/category/Category"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+          <ListItemButton sx={{ pl: 4 }}>
+            <ListItemIcon>
+              <ViewSidebarIcon sx={ListbtnStyle.iconStyle}/>
+            </ListItemIcon>
+            
+            <ListItemText disableTypography
+            primary={
+              <Typography
+                type="body2"
+                className="btnT"
+                sx={
+                  ListbtnStyle.btnTitleSub
+                }
+              >
+                Category
+              </Typography>
+            } />
+            
+          </ListItemButton>
+          </Link>
+          <Link
+              href="/usermanagements/group/Group"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+          <ListItemButton sx={{ pl: 4 }}>
+            <ListItemIcon>
+              <GroupIcon sx={ListbtnStyle.iconStyle}/>
+            </ListItemIcon>
+            
+              <ListItemText disableTypography
+            primary={
+              <Typography
+                type="body2"
+                className="btnT"
+                sx={
+                  ListbtnStyle.btnTitleSub
+                }
+              >
+                Product
+              </Typography>
+            } />
+            
+          </ListItemButton>
+          </Link>
+          
+
+        </List>
+      </Collapse>
+
 
       <ListItemButton sx={ListbtnStyle.btn}>
         <ListItemIcon >

@@ -14,7 +14,7 @@ const Dashboard = () => {
       <Head>
         <title>Home Dashboard</title>
       </Head>
-   
+       <h1>Dashboard</h1>
     </div>
   );
 };
