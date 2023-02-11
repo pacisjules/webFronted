@@ -134,7 +134,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
           <DashboardIcon sx={ListbtnStyle.iconStyle} className="dashIcon"/>
         </ListItemIcon>
         <Link
-          href="/Dashboard"
+          href="/dashboard"
           style={{
             textDecoration: "none",
           }}
