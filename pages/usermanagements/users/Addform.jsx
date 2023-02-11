@@ -7,11 +7,21 @@ import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-import Button from '@mui/material/Button';
+import StepButton from '@mui/material/StepButton';
 import Typography from '@mui/material/Typography';
-
-const steps = ['User information', 'User address', 'Security', 'Finish setup'];
-
+import StepContent from '@mui/material/StepContent';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import TextField from "@mui/material/TextField";
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead';
+import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 
 function Addform(props) {
   const dispatch = useDispatch();
@@ -62,9 +72,6 @@ function Addform(props) {
   };
 
 
-
-
-
   const [sectionname, setSectionname] = useState("");
   const [sectiondescr, setSectiondescr] = useState("");
 
@@ -85,7 +92,7 @@ function Addform(props) {
       setSectiondescrLabel("Add Description");
     } else {
 
-      
+
       // whatever you want to send
       const data = {
         user_id: localStorage.getItem('id'),
@@ -104,70 +111,124 @@ function Addform(props) {
       setSectiondescrLabel("Description");
       setSectiondescrerro(false);
     }
-
-
   };
 
   return (
     <div className={classes.addform}>
-     <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={activeStep}>
-        {steps.map((label, index) => {
-          const stepProps = {};
-          const labelProps = {};
-          if (isStepOptional(index)) {
-            labelProps.optional = (
-              <Typography variant="caption">Optional</Typography>
-            );
-          }
-          if (isStepSkipped(index)) {
-            stepProps.completed = false;
-          }
-          return (
-            <Step key={label} {...stepProps}>
-              <StepLabel {...labelProps}>{label}</StepLabel>
-            </Step>
-          );
-        })}
-      </Stepper>
-      {activeStep === steps.length ? (
-        <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>
-            All steps completed - you&apos;re finished
-          </Typography>
-          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-            <Box sx={{ flex: '1 1 auto' }} />
-            <Button onClick={handleReset}>Reset</Button>
-          </Box>
-        </React.Fragment>
-      ) : (
-        <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
-          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-            <Button
-              color="inherit"
-              disabled={activeStep === 0}
-              onClick={handleBack}
-              sx={{ mr: 1 }}
-            >
-              Back
-            </Button>
+      <Box sx={{ width: '100%' }}>
+        <Stepper activeStep={activeStep} alternativeLabel>
+          <Step key={1}>
+            <StepLabel>
+              User information
+            </StepLabel>
+          </Step>
+          <Step key={2}>
+            <StepLabel>User Contacts</StepLabel>
+          </Step>
+          <Step key={3}>
+            <StepLabel>Security</StepLabel>
+          </Step>
 
-            <Box sx={{ flex: '1 1 auto' }} />
-            {isStepOptional(activeStep) && (
-              <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                Skip
-              </Button>
-            )}
+          <Step key={4}>
+            <StepLabel>Finish</StepLabel>
+          </Step>
+        </Stepper>
+        <Box sx={{ width: '100%', display: "flex", flexDirection:"column", padding: "10px", justifyContent:"space-between", alignItems: "center" }}>
+          {activeStep === 0 ? (
+          <> <br/><br/>
+        <TextField
+        id="filled-multiline-flexible"
+        label="First name"
+        multiline
+        maxRows={4}
+        variant="outlined"
+        size="small"
+        sx={{
+          width:"70%"
+        }}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <PersonOutlineIcon sx={{
+                color:"green"
+              }} />
+            </InputAdornment>
+          ),
+        }}
+        />
+<br/>
+<TextField
+        id="filled-multiline-flexible"
+        label="Last name"
+        multiline
+        maxRows={4}
+        variant="outlined"
+        size="small"
+        sx={{
+          width:"70%"
+        }}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <PersonOutlineIcon sx={{
+                color:"green"
+              }} />
+            </InputAdornment>
+          ),
+        }}
+        />
+<br/>
+<TextField
+        id="filled-multiline-flexible"
+        label="Company"
+        multiline
+        maxRows={4}
+        variant="outlined"
+        size="small"
+        sx={{
+          width:"70%"
+        }}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <AddBusinessIcon sx={{
+                color:"#a5ab00"
+              }}/>
+            </InputAdornment>
+          ),
+        }}
+        />
+      <br/>
+          </>
+          ) : activeStep === 1 ? (
+          <>
+          </>
+          ) : activeStep === 2 ? (
+          <>
+          </>
+          ) : (
+          <>
+          </>
+          )}
+        </Box>
 
-            <Button onClick={handleNext}>
-              {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-            </Button>
-
-          </Box>
-        </React.Fragment>
-      )}
-    </Box>
+        <Box sx={{ width: '100%', display: "flex", padding: "10px", justifyContent: "center", alignItems: "center" }}>
+          <Stack spacing={2} direction="row">
+            <Button variant="contained" onClick={handleBack} startIcon={<ChevronLeftIcon/>} sx={{
+                backgroundColor:"#e80078",
+                "&:hover":{
+                    backgroundColor:"#ab0058",
+                }
+            }}>Back</Button>
+            <Button variant="contained" onClick={handleNext} endIcon={<NavigateNextIcon />} sx={{
+                backgroundColor:"#02ba5b",
+                "&:hover":{
+                    backgroundColor:"#008a43",
+                }
+            }}>Next</Button>
+          </Stack>
+        </Box>
+      </Box>
     </div>
   );
 }
