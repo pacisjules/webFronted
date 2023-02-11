@@ -15,7 +15,6 @@ function Edit () {
     
   // const [LoadDatas, setLoadDatas] = useState([]);
     const { enqueueSnackbar } = useSnackbar();
-
     const [groupname, setGroupname] = useState("");
     const [groupdescr, setGroupdescr] = useState("");
     const [groupstatus, setGroupstatus] = useState("");
@@ -56,8 +55,6 @@ function Edit () {
      )
     };
 
-    
-  
     useEffect(() => {
       getdetailname()
       getdetaildescri()
