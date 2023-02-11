@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import classes from "../../../styles/section/App.module.css";
 import Datatable from "./Datatable"
 import Link from "next/link";
-
+import Head from 'next/head';
 export default function Users() {
 
   return (
     <div className={classes.main}>
+      <Head>
+                <title>Users</title>
+            </Head>
       <div className={classes.topintro}>
         <h1>Users</h1>
         <h2>Welcome in users management</h2>

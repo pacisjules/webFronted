@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import classes from "../../styles/section/App.module.css";
-
+import Head from 'next/head';
 // import Addform from "./Addform";
 import Datatable from "./Datatable"
 import Link from "next/link";
@@ -9,6 +9,9 @@ export default function Group() {
 
   return (
     <div className={classes.main}>
+      <Head>
+        <title>Inventory</title>
+      </Head>
       <div className={classes.topintro}>
         <h1>Inventory</h1>
         <h2>Welcome in Inventory Module</h2>

@@ -25,12 +25,12 @@ body {
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #0066ba; 
+  background: #2d4050; 
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #005a6e; 
+  background: #1e5f95; 
 }
 

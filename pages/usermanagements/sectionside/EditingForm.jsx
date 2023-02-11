@@ -9,7 +9,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
+import Head from "next/head.js";
 function EditingForm({Appname}) {
   const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
@@ -62,6 +62,9 @@ function EditingForm({Appname}) {
 
   return (
     <div className={classes.addform}>
+      <Head>
+                <title>Edit Section</title>
+            </Head>
       <TextField
         id="outlined-basic"
         label={sectionnameLabel}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import classes from "../../../styles/section/App.module.css";
-// import Addform from "./Addform";
+import Head from 'next/head';
 import Datatable from "./Datatable"
 import Link from "next/link";
 
@@ -8,6 +8,9 @@ export default function Group() {
 
   return (
     <div className={classes.main}>
+      <Head>
+                <title>Group</title>
+            </Head>
       <div className={classes.topintro}>
         <h1>User Groups</h1>
         <h2>Welcome in User Groups management</h2>

@@ -3,11 +3,14 @@ import classes from "../../../styles/section/App.module.css";
 import Addform from "./Addform";
 import Datatable from "./Datatable"
 import Link from "next/link";
-
+import Head from 'next/head';
 export default function Section() {
 
   return (
     <div className={classes.main}>
+      <Head>
+                <title>Section</title>
+            </Head>
       <div className={classes.topintro}>
         <h1>Sections</h1>
         <h2>Welcome in section management</h2>

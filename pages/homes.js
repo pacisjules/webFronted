@@ -74,7 +74,7 @@ export default function homes() {
     return (
       <div className={classes.homesContainer}>
         <Head>
-        <title>Welcome</title>
+        <title>Welcome in system</title>
       </Head>
         <div className={classes.top}>
           <div className={classes.photoSet}>

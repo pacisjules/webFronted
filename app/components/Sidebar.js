@@ -56,7 +56,7 @@ function Sidebar() {
         '&:hover': {
           backgroundColor: "#008cff",
           "& .dashIcon": {
-            color: "#DBEEFF",
+            color: "#00ff84",
           },
 
           "& .btnT": {
