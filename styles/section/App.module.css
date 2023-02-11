@@ -28,6 +28,13 @@
   justify-content: space-between;
 
 }
+.count{
+  background-color: white;
+  width:150px;
+  height: 100px;
+  text-align:center;
+  border-radius: 10px;
+}
 
 .editform {
   background-color: white;
