@@ -31,7 +31,7 @@ function Datatable() {
 
 
   const getdata = async ()=>{
-    await axios.get("http://127.0.0.1:8000/all_section?page=1&size=50", { headers: { Authorization: `Bearer ${session.user.token}` } }).then((response)=> setLoadDatas(response.data.items))
+    await axios.get("http://127.0.0.1:8000/users?page=1&size=50", { headers: { Authorization: `Bearer ${session.user.token}` } }).then((response)=> setLoadDatas(response.data.items))
   }
 
   useEffect(() => {
@@ -44,15 +44,18 @@ function Datatable() {
 
 
   const columns = [
-    {
-      field: "id",
-      headerName: "ID",
-     // width: 60,
-      sortable: false,
-      filterable: false,
-    },
-    { field: "section_name", headerName: "Section Name", width: 170, editable: true, },
-    { field: "description", headerName: "Description", width: 170,editable: true, },
+    // {
+    //   field: "id",
+    //   headerName: "ID",
+    //  // width: 60,
+    //   sortable: false,
+    //   filterable: false,
+    // },
+    { field: "names", headerName: "Names", width: 170, editable: true, },
+    { field: "email", headerName: "Email", width: 170,editable: true, },
+    { field: "phone", headerName: "Phone number", width: 170,editable: true, },
+    { field: "role", headerName: "Role", width: 100,editable: true, },
+    //{ field: "living", headerName: "Address", width: 170,editable: true, },
     {
       field: "status",
       headerName: "Status",
@@ -135,9 +138,12 @@ function Datatable() {
   
   
   const datarow = Loaddatas.map((item) => ({
-    id: item.section_id,
-    section_name: item.section_name,
-    description: item.description,
+    id: item.user_id,
+    names: item.first_name+" "+item.last_name,
+    email: item.email,
+    phone: item.phone,
+    role: item.role,
+    living: item.living,
     status: item.status,
   }));
 

@@ -10,7 +10,7 @@
   justify-content: flex-start;
   align-items: center;
   float: right;
-  background-color: #eafeff;
+  background-color: #f3f3f3;
 }
 
 
@@ -55,13 +55,13 @@
 
 
 .topintro {
-  width: 80%;
+  width: 50%;
   text-align: center;
 }
 
 .topintro h1 {
   font-weight: bolder;
-  font-size: 45px;
+  font-size: 30px;
   color: #003E58;
   margin: 5px;
   margin-top: 30px;
@@ -69,13 +69,13 @@
 
 .topintro h2 {
   font-weight: bolder;
-  font-size: 25px;
+  font-size: 13px;
   color: #4B4B4B;
 }
 
 .topintro p {
   font-weight: 400;
-  font-size: 15px;
+  font-size: 12px;
   color: #4B4B4B;
   margin: 5px;
 }
@@ -85,11 +85,22 @@
   color: white;
   outline: none;
   border: none;
-  padding: 15px;
-  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 50px;
   font-family: "Inter";
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.main .btnlink button:hover{
+  background-color: #0066cb;
+  box-shadow: -3px -1px 14px 0px rgba(0,0,0,0.35);
+-webkit-box-shadow: -3px -1px 14px 0px rgba(0,0,0,0.35);
+-moz-box-shadow: -3px -1px 14px 0px rgba(0,0,0,0.35);
 }
 
 .currentinfo{

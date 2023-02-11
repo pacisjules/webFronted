@@ -93,7 +93,7 @@ export default function homes() {
           <br />
           {/* <button onClick={() => signOut()}>Logout as {username}</button> */}
           <Stack spacing={2} direction="row">
-            <Link href="/Dashboard" style={{
+            <Link href="/dashboard" style={{
               textDecoration:'none'
             }}>
               <Button variant="contained">Continue</Button>

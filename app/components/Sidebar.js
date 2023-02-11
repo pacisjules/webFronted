@@ -47,21 +47,16 @@ function Sidebar() {
   const ListbtnStyle = {
     
     btn:{
-
-       backgroundColor: "#DBEEFF",
-        borderRadius: "10px",
-        width: "90%",
+        width: "100%",
         height: "40px",
-        marginLeft: "13px",
-        marginTop: "10px",
+        marginTop: "0px",
         position:"relative",
-        
-        
-
+        transition:"0.3s ease-in-out",
+        color:"#e1f1fc",
         '&:hover': {
-          backgroundColor: "#0054A1",
+          backgroundColor: "#008cff",
           "& .dashIcon": {
-            color: "#DBEEFF"
+            color: "#DBEEFF",
           },
 
           "& .btnT": {
@@ -72,24 +67,28 @@ function Sidebar() {
     },
 
     iconStyle: {
-      color: '#0054A1',
+      color: '#e1f1fc',
       fontSize:"17px"
     },
 
     btnTitle:{
-        fontSize: "14px",
+        fontSize: "12px",
         fontfamily: "Inter",
-        color: "#0054A1",
-
+        color: "#e1f1fc",
+        fontWeight:"bold",
         '&:hover': {
-          color: "white",
+          color: "yellow",
         }
     },
 
     btnTitleSub:{
       fontSize: "13px",
         fontfamily: "Inter",
-        color: "#0054A1",
+        color: "#47acff",
+        transition:"0.2s ease-in-out",
+        '&:hover': {
+          color: "white",
+        }
     }
 
 
@@ -101,12 +100,14 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
   return (
     <List
       sx={{
-        width: "20%",
-        bgcolor: "white",
+        backgroundColor:"#00041f",
+        width: "15%",
+        bgcolor: "#00041f",
         height: "100%",
-       // boxShadow: "11px 5px 10px 0px rgba(0,0,0,0.03)",
+        borderRight:"1px solid #00041f",
+        //boxShadow: "11px 5px 10px 0px rgba(0,0,0,0.03)",
         position: "fixed",
-        overflowY:"scroll",
+        //overflowY:"scroll",
         // display: "flex",
         // flexDirection: "column",
         // justifyContent:"space-around"

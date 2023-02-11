@@ -12,3 +12,25 @@ body {
   font-family: "Inter";
 }
 
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #00041f; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0066ba; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #005a6e; 
+}
+

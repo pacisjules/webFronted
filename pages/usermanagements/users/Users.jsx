@@ -17,7 +17,7 @@ export default function Users() {
 
       <br/>
       <div className={classes.btnlink}>
-        <Link href="/usermanagements/users/Addform" >
+        <Link href="/usermanagements/users/AddingForm" >
         <button>ADD NEW USER</button>
       </Link>
       </div>
