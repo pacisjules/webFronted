@@ -96,7 +96,7 @@ const initialState = {
   storedtl:[],
   descript: "",
   statu: "",
-  groupnames: "",
+  numberinv: "",
 };
 
 export const groups = createSlice({
@@ -113,10 +113,10 @@ export const groups = createSlice({
     },
     getinventorydetail:(state,action)=>{
       state.storedtl=action.payload;
-    }
-    // getdescription:(state,action)=>{
-    //   state.descript=action.payload;
-    // },
+    },
+    getnumber:(state,action)=>{
+      state.numberinv=action.payload;
+    },
     // getstatus:(state,action)=>{
     //   state.statu=action.payload;
     // },
@@ -155,5 +155,5 @@ export const groups = createSlice({
 
 });
 
-export const { change_msg, getinventory, getinventorydetail} = groups.actions;
+export const { change_msg, getinventory, getinventorydetail, getnumber} = groups.actions;
 export default groups.reducer;
