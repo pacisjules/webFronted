@@ -1,7 +1,6 @@
 import React,{ useEffect,useState } from 'react'
 import axios from 'axios';
 import classes from "../../../styles/section/App.module.css";
-//import classes from "../../../../styles/group/Groups.modules.css";
 import {UPDATEStore, getinventorydetail} from '../../../features/inventories/inventory.js';
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,17 +9,12 @@ import TextField from "@mui/material/TextField";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+import Box from '@mui/material/Box';
 
 function Edit () {
-    
-  // const [LoadDatas, setLoadDatas] = useState([]);
   const { enqueueSnackbar } = useSnackbar();
 
   const [storename, setStorename] = useState("");
@@ -38,16 +32,22 @@ function Edit () {
   const [storedescrLabel, setStoredescrLabel] = useState("");
   const [storestatusLabel, setStorestatusLabel]= useState("");
 
-    const router = useRouter();
-    const { Edit } = router.query;
+  const router = useRouter();
+  const { Edit } = router.query;
 
-  const handleChange = (event) => {
-    storestatus(event.target.value);
-  };
 
-    const { data: session, status } = useSession({
+const handleChange = () => {
+  if(storestatus==="1"){
+    setStorestatus("0");
+  }else{
+    setStorestatus("1");
+  }
+    
+};
+
+const { data: session, status } = useSession({
       required: true,
-    });
+});
   
     const dispatch = useDispatch();
 
@@ -71,8 +71,10 @@ function Edit () {
     };
     const getdetailstatus = async ()=>{
       await axios.get("http://127.0.0.1:8000/stores/"+Edit, { headers: { Authorization: `Bearer ${session.user.token}` } })
-      .then((response)=> 
-      setStorestatus(response.data.status),
+      .then((response)=> {
+         setStorestatus(response.data.status)
+      }
+     
      )
     };
 
@@ -198,8 +200,18 @@ function Edit () {
         />
        
         <br/>
-        <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} checked/>
-          <br/>
+        <Box sx={{ width: '100%',  }}> 
+        <h4>{storestatus==="1"?"Activated":"Inactive"}</h4>
+        <Favorite sx={{
+          color:storestatus==="1"?"green":"red",
+          cursor:"pointer",
+          fontSize:"24pt",
+          textAlign:"center"
+        }}
+        onClick={handleChange}
+        />
+      </Box>
+        <br/>
 
           <Button variant="contained" color="primary" size="large" onClick={updatestorefuc}>
         Edit store

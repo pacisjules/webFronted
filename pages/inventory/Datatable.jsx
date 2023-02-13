@@ -9,7 +9,6 @@ import { DeleteStore,getinventory} from "../../features/inventories/inventory.js
 import { useDispatch, useSelector } from "react-redux";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { useRouter } from "next/router";
-
 import { useSession, signIn, signOut } from "next-auth/react";
 import Asktodelete from "./Asktodelete.jsx";
 
@@ -48,19 +47,17 @@ function Datatable() {
     {
       field: "id",
       headerName: "ID",
-     // width: 60,
       sortable: false,
       filterable: false,
+      editable: false,
     },
-    { field: "store_name", headerName: "Store Name", width: 170, editable: true, },
-    { field: "address", headerName: "Address", width: 170, editable: true, },
-    { field: "description", headerName: "Description", width: 170,editable: true, },
+    { field: "store_name", headerName: "Store Name", width: 170, editable: false, },
+    { field: "address", headerName: "Address", width: 170, editable: false, },
+    { field: "description", headerName: "Description", width: 170,editable: false, },
     {
       field: "status",
       headerName: "Status",
-     // width: 100,
-      type: 'boolean',
-      editable: true,
+      editable: false,
     },
 
     {
@@ -72,6 +69,11 @@ function Datatable() {
         return (
           <div>
             {" "}
+
+          <Box sx={{
+            padding:"30px",
+            height:"30px",
+          }}>
 
             <VisibilityIcon sx={{
               color:"#3eb300",
@@ -86,6 +88,8 @@ function Datatable() {
 
             }}
             />
+
+          
 
               <EditIcon sx={{
                    color:"#0362fc",
@@ -111,7 +115,7 @@ function Datatable() {
               setCurrentID(params.id);
               setStoreName(params.store_name);
             }}/>
-
+          </Box>
           </div>
         );
       },
@@ -139,11 +143,8 @@ function Datatable() {
     store_name: item.store_name,
     address:item.address,
     description: item.description,
-    status: item.status,
+    status: item.status==="1"?"Active":"Not Active",
   }));
-
-
-
 
 
   return (
