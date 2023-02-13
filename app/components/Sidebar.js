@@ -257,7 +257,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
           </ListItemButton>
           </Link>
           <Link
-              href="/usermanagements/group/Group"
+              href="/productsmanagement/product/Product"
               style={{
                 textDecoration: "none",
               }}

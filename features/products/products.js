@@ -17,8 +17,8 @@ export const getUser_infos = createAsyncThunk(
   }
 );
 
-const baseUrl = "http://127.0.0.1:8000/addcategory";
-export const AddCategory = createAsyncThunk(
+const baseUrl = "http://127.0.0.1:8000/addproduct";
+export const AddProduct = createAsyncThunk(
   "groups/AddStore",
   async (data) => {
     try {
@@ -95,7 +95,7 @@ const initialState = {
   categorytbl:[],
   storedtl:[],
   storetbl:[],
-  statu: "",
+  storeitem: [],
   groupnames: "",
 };
 
@@ -108,18 +108,18 @@ export const groups = createSlice({
       state.msg = action.payload;
     },
 
-    getcategory:(state, action)=>{
+    getproduct:(state, action)=>{
       state.categorytbl=action.payload.items;
     },
     getinventorydetail:(state,action)=>{
       state.storedtl=action.payload;
     },
-    getstores:(state,action)=>{
+    getcategory:(state,action)=>{
       state.storetbl=action.payload;
     },
-    // getstatus:(state,action)=>{
-    //   state.statu=action.payload;
-    // },
+    getstore:(state,action)=>{
+      state.storeitem=action.payload;
+    },
     // getgroupname:(state,action)=>{
     //   state.groupnames=action.payload;
     // },
@@ -131,9 +131,9 @@ export const groups = createSlice({
   },
 
   extraReducers: (builder) => {
-    builder.addCase(AddCategory.pending, (state) => {});
+    builder.addCase(AddProduct.pending, (state) => {});
 
-    builder.addCase(AddCategory.fulfilled, (state, action) => {
+    builder.addCase(AddProduct.fulfilled, (state, action) => {
       state.msg = action.payload.Message;
     });
 
@@ -155,5 +155,5 @@ export const groups = createSlice({
 
 });
 
-export const { change_msg, getcategory, getinventorydetail,getstores} = groups.actions;
+export const { change_msg, getproduct, getinventorydetail,getcategory, getstore} = groups.actions;
 export default groups.reducer;

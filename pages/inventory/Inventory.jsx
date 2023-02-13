@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Datatable from "./Datatable"
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { getnumber} from "../../features/inventories/inventory.js";
 import { useSession, signIn, signOut } from "next-auth/react";
 import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
@@ -21,7 +22,7 @@ export default function Group() {
 
   const getnumdata = async ()=>{
     await axios.get("http://127.0.0.1:8000/count_storess", { headers: { Authorization: `Bearer ${session.user.token}` } })
-    .then((response)=> setNumberdata(response.data))
+    .then((response)=> setNumberdata(response))
   }
 
   useEffect(() => {
@@ -44,7 +45,7 @@ export default function Group() {
 
       <br/>
       <div className={classes.count}>
-        <h2>{numberdata.numberofstores} Store</h2>
+        <h2>{numberdata} Store</h2>
         <p>All Stores</p>
         <div className={classes.btnlink}>
           <Link href="/inventory/AddingForm" >

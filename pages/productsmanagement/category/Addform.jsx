@@ -1,13 +1,22 @@
-import React, { useState } from "react";
-import { AddCategory,change_msg } from "../../../features/category/category";
+import { useEffect, useState } from "react";
+import { AddCategory,getstores,change_msg } from "../../../features/category/category";
 import { useDispatch } from "react-redux";
 import Button from "@mui/material/Button";
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import ListItemText from '@mui/material/ListItemText';
 import TextField from "@mui/material/TextField";
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
 import { SnackbarProvider, useSnackbar } from "notistack";
 import classes from "../../../styles/section/App.module.css";
+import { useSession, signIn, signOut } from "next-auth/react";
+import axios from 'axios';
+
+
 
 function Addform(props) {
-  const dispatch = useDispatch();
+  
   const { enqueueSnackbar } = useSnackbar();
 
   const [categoryname, setCategoryname] = useState("");
@@ -18,6 +27,33 @@ function Addform(props) {
 
   const [categorynameLabel, SetcategorynameLabel] = useState("Category name");
   const [categorydescrLabel, setCategorydescrLabel] = useState("Description");
+  const [storeLabel, setStoreLabel] = useState("Store Name");
+
+  const [loadStores, setLoadStores] = useState([]);
+  const [storeName,setStoreName]= useState("");
+
+  const { data: session, status } = useSession({
+    required: true,
+  });
+
+  const dispatch = useDispatch();
+
+
+  const getdata = async ()=>{
+    await axios.get("http://127.0.0.1:8000/store_names", { headers: { Authorization: `Bearer ${session.user.token}` } })
+    .then((response)=> setLoadStores(response.data))
+  }
+
+  useEffect(() => {
+    getdata()
+    dispatch(getstores(loadStores))
+  }, []);
+
+
+
+  const handleChange = (event) => {
+    setStoreName(event.target.value);
+  };
 
   const addcategoryfuc = (e) => {
     e.preventDefault();
@@ -32,7 +68,7 @@ function Addform(props) {
       // whatever you want to send
       const data = {
         user_id: localStorage.getItem('id'),
-        store_id:"f8b30258-a87e-11ed-9c7e-88532eef2751",
+        store_id: storeName,
         category_name: categoryname,
         description: categorydescr,
       };
@@ -47,8 +83,9 @@ function Addform(props) {
 
       setCategorydescrLabel("Description");
       setCategorydescrerro(false);
-    }
+      setStoreLabel("Store Name")   
   };
+}
 
   return (
     <div className={classes.addform}>
@@ -67,6 +104,23 @@ function Addform(props) {
         }}
       />
       <br/>
+      <InputLabel id="demo-multiple-name-label">Store Name</InputLabel>
+      <Select
+          labelId="demo-mutiple-checkbox-label"
+          id="demo-mutiple-checkbox"
+          label={storeLabel}
+          value={storeName}
+          onChange={handleChange}
+         
+        >
+          {loadStores.map((name) => (
+            <MenuItem key={name.store_id} value={name.store_id}>
+              <ListItemText primary={name.store_name} />
+            </MenuItem>
+          ))}
+        </Select>
+        <br/>
+
 
       <TextField
         id="filled-multiline-flexible"

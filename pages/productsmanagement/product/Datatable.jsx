@@ -5,7 +5,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from '@mui/icons-material/Edit';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import axios from 'axios';
-import {getcategory} from "../../../features/category/category.js";
+import {getproduct} from "../../../features/products/products.js";
 import { useDispatch, useSelector } from "react-redux";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { useRouter } from "next/router";
@@ -31,13 +31,13 @@ function Datatable() {
 
 
   const getdata = async ()=>{
-    await axios.get("http://127.0.0.1:8000/all_category?page=1&size=50", { headers: { Authorization: `Bearer ${session.user.token}` } })
+    await axios.get("http://127.0.0.1:8000/all_product?page=1&size=50", { headers: { Authorization: `Bearer ${session.user.token}` } })
     .then((response)=> setLoadDatas(response.data.items))
   }
 
   useEffect(() => {
     getdata()
-    dispatch(getcategory(Loaddatas))
+    dispatch(getproduct(Loaddatas))
   }, []);
 
 //   const mytbl = useSelector((state) => state.sections.sectionstbl);
@@ -52,7 +52,9 @@ function Datatable() {
       sortable: false,
       filterable: false,
     },
-    { field: "category_name", headerName: "Category Name", width: 170, editable: true, },
+    { field: "product_name", headerName: "Product Name", width: 170, editable: true, },
+    { field: "product_price", headerName: "Product Price", width: 170,editable: true, },
+    { field: "unity_type", headerName: "Unit Type", width: 170,editable: true, },
     { field: "description", headerName: "Description", width: 170,editable: true, },
     {
       field: "status",
@@ -70,7 +72,7 @@ function Datatable() {
       renderCell: (params) => {
         return (
           <div>
-            {" "}
+             {" "}
 
             <VisibilityIcon sx={{
               color:"#3eb300",
@@ -134,8 +136,10 @@ function Datatable() {
   
   
   const datarow = Loaddatas.map((item) => ({
-    id: item.category_id,
-    category_name: item.category_name,
+    id:item.product_id,
+    product_name: item.product_name,
+    product_price: item.product_price,
+    unit_type: item.unit_type,
     description: item.description,
     status: item.status,
   }));
