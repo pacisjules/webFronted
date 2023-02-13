@@ -80,7 +80,7 @@ function Datatable() {
             }}
             onClick={()=>{
               router.push({
-                pathname: '/usermanagements/sectionside/[View]',
+                pathname: '/inventory/[View]',
                 query: { View: params.id }
             })
 

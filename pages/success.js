@@ -24,7 +24,8 @@ function success() {
 
     localStorage.setItem("userinfos", JSON.stringify(response.data));
     localStorage.setItem("id", response.data.user_id);
-    localStorage.setItem("sgn", session.user.token)
+    localStorage.setItem("sgn", session.user.token);
+    localStorage.setItem("org_id", response.data.organization_ID);
   };
 
   const interval = setInterval(() => {

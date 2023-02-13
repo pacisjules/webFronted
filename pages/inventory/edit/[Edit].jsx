@@ -10,11 +10,18 @@ import TextField from "@mui/material/TextField";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 function Edit () {
     
   // const [LoadDatas, setLoadDatas] = useState([]);
-    const { enqueueSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
 
   const [storename, setStorename] = useState("");
   const [storeaddress, setStoreaddress] = useState("");
@@ -33,6 +40,10 @@ function Edit () {
 
     const router = useRouter();
     const { Edit } = router.query;
+
+  const handleChange = (event) => {
+    storestatus(event.target.value);
+  };
 
     const { data: session, status } = useSession({
       required: true,
@@ -72,12 +83,6 @@ function Edit () {
       getdetailaddress()
       getdetaildescri()
       getdetailstatus()
-
-      dispatch(getinventorydetail(storename))
-      dispatch(getinventorydetail(storeaddress))
-      dispatch(getinventorydetail(storedescr))
-      dispatch(getinventorydetail(storestatus))
-     
     }, []);
 
   
@@ -149,7 +154,7 @@ function Edit () {
           <div className={classes.editform}>
             <TextField
               id="outlined-basic"
-              label={storenameLabel}
+              label="Store name"
               variant="outlined"
               value={storename}
               error={storenameError}
@@ -164,7 +169,7 @@ function Edit () {
 
           <TextField
               id="outlined-basic"
-              label={storeaddressLabel}
+              label="Address"
               variant="outlined"
               value={storeaddress}
               error={storeaddressError}
@@ -179,7 +184,7 @@ function Edit () {
 
             <TextField
               id="filled-multiline-flexible"
-              label={storedescrLabel}
+              label="Description"
               multiline
               maxRows={4}
               variant="outlined"
@@ -193,18 +198,7 @@ function Edit () {
         />
        
         <br/>
-        <TextField
-              id="outlined-basic"
-              label={storestatusLabel}
-              variant="outlined"
-              value={storestatus}
-              error={storestatuserror}
-              size="small"
-              onChange={(e) => {
-                setStorestatus(e.target.value);
-                setStorestatuserror(false);
-              }}
-          />
+        <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} checked/>
           <br/>
 
           <Button variant="contained" color="primary" size="large" onClick={updatestorefuc}>

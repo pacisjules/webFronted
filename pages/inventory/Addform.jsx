@@ -38,12 +38,13 @@ function Addform(props) {
       const data = {
         user_id: localStorage.getItem('id'),
         store_name: storename,
-        org_setting_id:"ede4b603-a84f-11ed-825a-88532eef2751",
+        org_setting_id:localStorage.getItem('org_id'),
         address:storeaddress,
         description: storedescr,
       };
 
       dispatch(AddStore(data));
+
       enqueueSnackbar(`${storename} has been added`, { variant: "success" });
       setStorename("");
       setStoreaddress("");
