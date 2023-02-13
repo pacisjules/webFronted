@@ -22,6 +22,10 @@ import InputAdornment from '@mui/material/InputAdornment';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
+import MarkEmailUnreadOutlinedIcon from '@mui/icons-material/MarkEmailUnreadOutlined';
+import WrapTextOutlinedIcon from '@mui/icons-material/WrapTextOutlined';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
 function Addform(props) {
   const dispatch = useDispatch();
@@ -202,6 +206,91 @@ function Addform(props) {
           </>
           ) : activeStep === 1 ? (
           <>
+          <br/><br/>
+        <TextField
+        id="filled-multiline-flexible"
+        label="Phone number"
+        multiline
+        maxRows={4}
+        variant="outlined"
+        size="small"
+        sx={{
+          width:"70%"
+        }}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <LocalPhoneOutlinedIcon sx={{
+                color:"green"
+              }} />
+            </InputAdornment>
+          ),
+        }}
+        />
+<br/>
+<TextField
+        id="filled-multiline-flexible"
+        label="E-mail"
+        multiline
+        maxRows={4}
+        variant="outlined"
+        size="small"
+        sx={{
+          width:"70%"
+        }}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <MarkEmailUnreadOutlinedIcon sx={{
+                color:"green"
+              }} />
+            </InputAdornment>
+          ),
+        }}
+        />
+<br/>
+<TextField
+        id="filled-multiline-flexible"
+        label="Type"
+        multiline
+        maxRows={4}
+        variant="outlined"
+        size="small"
+        sx={{
+          width:"70%"
+        }}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <WrapTextOutlinedIcon sx={{
+                color:"#a5ab00"
+              }}/>
+            </InputAdornment>
+          ),
+        }}
+        />
+      <br/>
+      <TextField
+        id="filled-multiline-flexible"
+        label="Living address"
+        multiline
+        maxRows={4}
+        variant="outlined"
+        size="small"
+        sx={{
+          width:"70%"
+        }}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <HomeOutlinedIcon sx={{
+                color:"#a5ab00"
+              }}/>
+            </InputAdornment>
+          ),
+        }}
+        />
+      <br/>
           </>
           ) : activeStep === 2 ? (
           <>
