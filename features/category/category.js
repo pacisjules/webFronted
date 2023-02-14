@@ -29,10 +29,10 @@ export const AddCategory = createAsyncThunk(
     }
   }
 );
-const updateUrl = "http://127.0.0.1:8000/stores_update";
+const updateUrl = "http://127.0.0.1:8000/category_update";
 
-export const UPDATEStore = createAsyncThunk(
-  "groups/UpdateGroup",
+export const UPDATEcategory = createAsyncThunk(
+  "groups/UpdateCategory",
   async (data) => {
    
     try {
@@ -48,11 +48,11 @@ export const UPDATEStore = createAsyncThunk(
   }
 );
 
-export const DeleteStore = createAsyncThunk(
-  "groups/Deletestore",
+export const DeleteCategory = createAsyncThunk(
+  "groups/Deletecategory",
   async (data) => {
     try {
-      const delurl="http://127.0.0.1:8000/Delete_stores/"+data.Did;
+      const delurl="http://127.0.0.1:8000/Delete_category/"+data.Did;
       const response = await axios.delete(delurl,{
         headers: { Authorization: `Bearer ${data.tkn}` },
       });
@@ -137,22 +137,16 @@ export const groups = createSlice({
       state.msg = action.payload.Message;
     });
 
-    builder.addCase(DeleteStore.fulfilled, (state, action) => {
+    builder.addCase(DeleteCategory.fulfilled, (state, action) => {
       console.log(action.payload)
     });
 
-    builder.addCase(UPDATEStore.fulfilled, (state, action) => {
+    builder.addCase(UPDATEcategory.fulfilled, (state, action) => {
       state.msg = action.payload.Message;
       console.log(action.payload);
     });
 
   },
-
-
-
-
-
-
 });
 
 export const { change_msg, getcategory, getinventorydetail,getstores} = groups.actions;

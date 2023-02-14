@@ -104,22 +104,7 @@ function Addform(props) {
         }}
       />
       <br/>
-      <InputLabel id="demo-multiple-name-label">Store Name</InputLabel>
-      <Select
-          labelId="demo-mutiple-checkbox-label"
-          id="demo-mutiple-checkbox"
-          label={storeLabel}
-          value={storeName}
-          onChange={handleChange}
-         
-        >
-          {loadStores.map((name) => (
-            <MenuItem key={name.store_id} value={name.store_id}>
-              <ListItemText primary={name.store_name} />
-            </MenuItem>
-          ))}
-        </Select>
-        <br/>
+      
 
 
       <TextField
@@ -139,6 +124,22 @@ function Addform(props) {
         }}
       />
       <br/>
+
+      <Select
+          labelId="demo-mutiple-checkbox-label"
+          id="demo-mutiple-checkbox"
+          label={storeLabel}
+          value={storeName}
+          onChange={handleChange}
+         
+        >
+          {loadStores.map((name) => (
+            <MenuItem key={name.store_id} value={name.store_id}>
+              <ListItemText primary={name.store_name} />
+            </MenuItem>
+          ))}
+        </Select>
+        <br/>
 
       <Button variant="contained" color="primary" size="large" onClick={addcategoryfuc}>
         Add category

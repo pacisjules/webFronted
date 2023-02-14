@@ -5,13 +5,13 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from '@mui/icons-material/Edit';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import axios from 'axios';
-import {getcategory} from "../../../features/category/category.js";
+import {getcategory, DeleteCategory} from "../../../features/category/category.js";
 import { useDispatch, useSelector } from "react-redux";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 
 import { useSession, signIn, signOut } from "next-auth/react";
-// import Asktodelete from "./Asktodelete.jsx";
+import Asktodelete from "./Asktodelete.jsx";
 
 function Datatable() {
 
@@ -79,7 +79,7 @@ function Datatable() {
             }}
             onClick={()=>{
               router.push({
-                pathname: '/usermanagements/sectionside/[View]',
+                pathname: '/productsmanagement/category/[View]',
                 query: { View: params.id }
             })
 
@@ -94,7 +94,7 @@ function Datatable() {
 
                 onClick={()=>{
                  router.push({
-                 pathname: '/inventory/edit/[Edit]',
+                 pathname: '/productsmanagement/category/edit/[Edit]',
                  query: { Edit: params.id },
                 
                })
@@ -123,14 +123,14 @@ function Datatable() {
   }
 
 
-//   const DltStore = ()=>{
-//      const tkn = session.user.token;
-//      const Did = currentID;
-//      dispatch(DeleteStore({Did, tkn}))
-//      setLoadDatas((current) => current.filter((item) => item.store_id !== Did));
-//      setOpenaskmsg('none')
-//      enqueueSnackbar(`Category deleted successfully`, { variant: "success" });
-//   }
+  const DltStore = ()=>{
+     const tkn = session.user.token;
+     const Did = currentID;
+     dispatch(DeleteCategory({Did, tkn}))
+     setLoadDatas((current) => current.filter((item) => item.category_id !== Did));
+     setOpenaskmsg('none')
+     enqueueSnackbar(`Category deleted successfully`, { variant: "success" });
+  }
   
   
   const datarow = Loaddatas.map((item) => ({
@@ -153,7 +153,7 @@ function Datatable() {
       }}
     >
 
-      {/* <Asktodelete storeName={currentstoreName} setopen={openaskmsg} closeBox={closemsgbox} deleteStore={DltStore}/> */}
+      <Asktodelete storeName={currentcategoryName} setopen={openaskmsg} closeBox={closemsgbox} deleteStore={DltStore}/>
 
       <div style={{
         width: "80%",

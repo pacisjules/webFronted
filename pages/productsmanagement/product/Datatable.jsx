@@ -5,13 +5,13 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from '@mui/icons-material/Edit';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import axios from 'axios';
-import {getproduct} from "../../../features/products/products.js";
+import {getproduct,DeleteProduct} from "../../../features/products/products.js";
 import { useDispatch, useSelector } from "react-redux";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 
 import { useSession, signIn, signOut } from "next-auth/react";
-// import Asktodelete from "./Asktodelete.jsx";
+import Asktodelete from "./Asktodelete.jsx";
 
 function Datatable() {
 
@@ -21,7 +21,7 @@ function Datatable() {
   const [Loaddatas, setLoadDatas] = useState([]);
   const [openaskmsg, setOpenaskmsg] = useState('none');
   const [currentID, setCurrentID] = useState('');
-  const [currentcategoryName, setCategoryName] = useState('')
+  const [currentproductName, setproductName] = useState('')
 
   const { data: session, status } = useSession({
     required: true,
@@ -81,7 +81,7 @@ function Datatable() {
             }}
             onClick={()=>{
               router.push({
-                pathname: '/usermanagements/sectionside/[View]',
+                pathname: '/productsmanagement/product/[View]',
                 query: { View: params.id }
             })
 
@@ -96,7 +96,7 @@ function Datatable() {
 
                 onClick={()=>{
                  router.push({
-                 pathname: '/inventory/edit/[Edit]',
+                 pathname: '/productsmanagement/product/edit/[Edit]',
                  query: { Edit: params.id },
                 
                })
@@ -110,7 +110,7 @@ function Datatable() {
 
               setOpenaskmsg('flex');
               setCurrentID(params.id);
-              setCategoryName(params.category_name);
+              setproductName(params.product_name);
             }}/>
 
           </div>
@@ -125,21 +125,21 @@ function Datatable() {
   }
 
 
-//   const DltStore = ()=>{
-//      const tkn = session.user.token;
-//      const Did = currentID;
-//      dispatch(DeleteStore({Did, tkn}))
-//      setLoadDatas((current) => current.filter((item) => item.store_id !== Did));
-//      setOpenaskmsg('none')
-//      enqueueSnackbar(`Category deleted successfully`, { variant: "success" });
-//   }
+  const DltStore = ()=>{
+     const tkn = session.user.token;
+     const Did = currentID;
+     dispatch(DeleteProduct({Did, tkn}))
+     setLoadDatas((current) => current.filter((item) => item.product_id !== Did));
+     setOpenaskmsg('none')
+     enqueueSnackbar(`Product deleted successfully`, { variant: "success" });
+  }
   
   
   const datarow = Loaddatas.map((item) => ({
     id:item.product_id,
     product_name: item.product_name,
     product_price: item.product_price,
-    unit_type: item.unit_type,
+    unity_type: item.unity_type,
     description: item.description,
     status: item.status,
   }));
@@ -157,7 +157,7 @@ function Datatable() {
       }}
     >
 
-      {/* <Asktodelete storeName={currentstoreName} setopen={openaskmsg} closeBox={closemsgbox} deleteStore={DltStore}/> */}
+      <Asktodelete storeName={currentproductName} setopen={openaskmsg} closeBox={closemsgbox} deleteStore={DltStore}/>
 
       <div style={{
         width: "80%",
