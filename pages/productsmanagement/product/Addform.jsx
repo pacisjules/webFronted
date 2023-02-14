@@ -194,7 +194,7 @@ function Addform(props) {
         }}
       />
       <br/>
-      
+      <InputLabel id="demo-simple-select-label">Category</InputLabel>
       <Select
           labelId="demo-mutiple-checkbox-label"
           id="demo-mutiple-checkbox"
@@ -210,7 +210,7 @@ function Addform(props) {
           ))}
         </Select>
         <br/>
-        
+        <InputLabel id="demo-simple-select-label">Store name</InputLabel>
       <Select
           labelId="demo-mutiple-checkbox-label"
           id="demo-mutiple-checkbox"

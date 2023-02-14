@@ -10,6 +10,7 @@ import TextField from "@mui/material/TextField";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import InputLabel from '@mui/material/InputLabel';
 import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
@@ -260,7 +261,7 @@ function Edit () {
         }}
       />
       <br/>
-      
+      <InputLabel id="demo-simple-select-label">Category</InputLabel>
       <Select
           labelId="demo-mutiple-checkbox-label"
           id="demo-mutiple-checkbox"
@@ -276,7 +277,7 @@ function Edit () {
           ))}
         </Select>
         <br/>
-        
+        <InputLabel id="demo-simple-select-label">Store name</InputLabel>
       <Select
           labelId="demo-mutiple-checkbox-label"
           id="demo-mutiple-checkbox"

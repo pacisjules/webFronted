@@ -7,6 +7,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import InputLabel from '@mui/material/InputLabel';
 import { SnackbarProvider, useSnackbar } from "notistack";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -177,7 +178,7 @@ function Edit () {
         }}
       />
       <br/>
-
+      <InputLabel id="demo-simple-select-label">Store name</InputLabel>
       <Select
           labelId="demo-mutiple-checkbox-label"
           id="demo-mutiple-checkbox"

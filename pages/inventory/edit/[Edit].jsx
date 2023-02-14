@@ -116,7 +116,7 @@ const { data: session, status } = useSession({
           store_name: storename,
           address:storeaddress,
           description: storedescr,
-          org_setting_id:"ede4b603-a84f-11ed-825a-88532eef2751",
+          org_setting_id:localStorage.getItem('org_id'),
           status:storestatus,
           created_at: "string",
           last_update_at:"string"

@@ -124,7 +124,7 @@ function Addform(props) {
         }}
       />
       <br/>
-
+      <InputLabel id="demo-simple-select-label">Store name</InputLabel>
       <Select
           labelId="demo-mutiple-checkbox-label"
           id="demo-mutiple-checkbox"
