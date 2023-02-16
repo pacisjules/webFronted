@@ -137,185 +137,279 @@ function Addform(props) {
             <StepLabel>Finish</StepLabel>
           </Step>
         </Stepper>
-        <Box sx={{ width: '100%', display: "flex", flexDirection:"column", padding: "10px", justifyContent:"space-between", alignItems: "center" }}>
+        <Box sx={{ width: '100%', display: "flex", flexDirection: "column", padding: "10px", justifyContent: "space-between", alignItems: "center" }}>
           {activeStep === 0 ? (
-          <> <br/><br/>
-        <TextField
-        id="filled-multiline-flexible"
-        label="First name"
-        multiline
-        maxRows={4}
-        variant="outlined"
-        size="small"
-        sx={{
-          width:"70%"
-        }}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <PersonOutlineIcon sx={{
-                color:"green"
-              }} />
-            </InputAdornment>
-          ),
-        }}
-        />
-<br/>
-<TextField
-        id="filled-multiline-flexible"
-        label="Last name"
-        multiline
-        maxRows={4}
-        variant="outlined"
-        size="small"
-        sx={{
-          width:"70%"
-        }}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <PersonOutlineIcon sx={{
-                color:"green"
-              }} />
-            </InputAdornment>
-          ),
-        }}
-        />
-<br/>
-<TextField
-        id="filled-multiline-flexible"
-        label="Company"
-        multiline
-        maxRows={4}
-        variant="outlined"
-        size="small"
-        sx={{
-          width:"70%"
-        }}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <AddBusinessIcon sx={{
-                color:"#a5ab00"
-              }}/>
-            </InputAdornment>
-          ),
-        }}
-        />
-      <br/>
-          </>
-          ) : activeStep === 1 ? (
-          <>
-          <br/><br/>
-        <TextField
-        id="filled-multiline-flexible"
-        label="Phone number"
-        multiline
-        maxRows={4}
-        variant="outlined"
-        size="small"
-        sx={{
-          width:"70%"
-        }}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <LocalPhoneOutlinedIcon sx={{
-                color:"green"
-              }} />
-            </InputAdornment>
-          ),
-        }}
-        />
-<br/>
-<TextField
-        id="filled-multiline-flexible"
-        label="E-mail"
-        multiline
-        maxRows={4}
-        variant="outlined"
-        size="small"
-        sx={{
-          width:"70%"
-        }}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <MarkEmailUnreadOutlinedIcon sx={{
-                color:"green"
-              }} />
-            </InputAdornment>
-          ),
-        }}
-        />
-<br/>
-<TextField
-        id="filled-multiline-flexible"
-        label="Type"
-        multiline
-        maxRows={4}
-        variant="outlined"
-        size="small"
-        sx={{
-          width:"70%"
-        }}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <WrapTextOutlinedIcon sx={{
-                color:"#a5ab00"
-              }}/>
-            </InputAdornment>
-          ),
-        }}
-        />
-      <br/>
-      <TextField
-        id="filled-multiline-flexible"
-        label="Living address"
-        multiline
-        maxRows={4}
-        variant="outlined"
-        size="small"
-        sx={{
-          width:"70%"
-        }}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <HomeOutlinedIcon sx={{
-                color:"#a5ab00"
-              }}/>
-            </InputAdornment>
-          ),
-        }}
-        />
-      <br/>
-          </>
-          ) : activeStep === 2 ? (
-          <>
-          </>
-          ) : (
-          <>
-          </>
-          )}
-        </Box>
+            <> <br /><br />
+              <TextField
+                id="filled-multiline-flexible"
+                label="First name"
+                multiline
+                maxRows={4}
+                variant="outlined"
+                size="small"
+                sx={{
+                  width: "70%"
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <PersonOutlineIcon sx={{
+                        color: "green"
+                      }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <br />
+              <TextField
+                id="filled-multiline-flexible"
+                label="Last name"
+                multiline
+                maxRows={4}
+                variant="outlined"
+                size="small"
+                sx={{
+                  width: "70%"
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <PersonOutlineIcon sx={{
+                        color: "green"
+                      }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <br />
 
-        <Box sx={{ width: '100%', display: "flex", padding: "10px", justifyContent: "center", alignItems: "center" }}>
-          <Stack spacing={2} direction="row">
-            <Button variant="contained" onClick={handleBack} startIcon={<ChevronLeftIcon/>} sx={{
-                backgroundColor:"#e80078",
-                "&:hover":{
-                    backgroundColor:"#ab0058",
-                }
-            }}>Back</Button>
-            <Button variant="contained" onClick={handleNext} endIcon={<NavigateNextIcon />} sx={{
-                backgroundColor:"#02ba5b",
-                "&:hover":{
-                    backgroundColor:"#008a43",
-                }
-            }}>Next</Button>
-          </Stack>
+              <TextField
+                id="filled-multiline-flexible"
+                label="Company"
+                multiline
+                maxRows={4}
+                variant="outlined"
+                size="small"
+                sx={{
+                  width: "70%"
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AddBusinessIcon sx={{
+                        color: "#a5ab00"
+                      }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <br />
+
+
+              <Box sx={{ width: '100%', display: "flex", padding: "10px", justifyContent: "center", alignItems: "center" }}>
+                <Stack spacing={2} direction="row">
+                  <Button variant="contained" onClick={handleNext} endIcon={<NavigateNextIcon />} sx={{
+                    backgroundColor: "#02ba5b",
+                    "&:hover": {
+                      backgroundColor: "#008a43",
+                    }
+                  }}>Save & Next</Button>
+                </Stack>
+              </Box>
+
+
+            </>
+          ) : activeStep === 1 ? (
+            <>
+              <br /><br />
+              <TextField
+                id="filled-multiline-flexible"
+                label="Phone number"
+                multiline
+                maxRows={4}
+                variant="outlined"
+                size="small"
+                sx={{
+                  width: "70%"
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LocalPhoneOutlinedIcon sx={{
+                        color: "green"
+                      }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <br />
+              <TextField
+                id="filled-multiline-flexible"
+                label="E-mail"
+                multiline
+                maxRows={4}
+                variant="outlined"
+                size="small"
+                sx={{
+                  width: "70%"
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <MarkEmailUnreadOutlinedIcon sx={{
+                        color: "green"
+                      }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <br />
+              <TextField
+                id="filled-multiline-flexible"
+                label="Type"
+                multiline
+                maxRows={4}
+                variant="outlined"
+                size="small"
+                sx={{
+                  width: "70%"
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <WrapTextOutlinedIcon sx={{
+                        color: "#a5ab00"
+                      }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <br />
+              <TextField
+                id="filled-multiline-flexible"
+                label="Living address"
+                multiline
+                maxRows={4}
+                variant="outlined"
+                size="small"
+                sx={{
+                  width: "70%"
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <HomeOutlinedIcon sx={{
+                        color: "#a5ab00"
+                      }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <br />
+              <Box sx={{ width: '100%', display: "flex", padding: "10px", justifyContent: "center", alignItems: "center" }}>
+                <Stack spacing={2} direction="row">
+                  <Button variant="contained" onClick={handleBack} startIcon={<ChevronLeftIcon />} sx={{
+                    backgroundColor: "#e80078",
+                    "&:hover": {
+                      backgroundColor: "#ab0058",
+                    }
+                  }}>Back</Button>
+                  <Button variant="contained" onClick={handleNext} endIcon={<NavigateNextIcon />} sx={{
+                    backgroundColor: "#02ba5b",
+                    "&:hover": {
+                      backgroundColor: "#008a43",
+                    }
+                  }}>Save & Next</Button>
+                </Stack>
+              </Box>
+            </>
+          ) : activeStep === 2 ? (
+            <>
+
+<TextField
+                id="filled-multiline-flexible"
+                label="Create Username"
+                multiline
+                maxRows={4}
+                variant="outlined"
+                size="small"
+                sx={{
+                  width: "70%"
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <HomeOutlinedIcon sx={{
+                        color: "#a5ab00"
+                      }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <br />
+
+              <TextField
+                id="filled-multiline-flexible"
+                label="Password"
+                multiline
+                maxRows={4}
+                variant="outlined"
+                size="small"
+                sx={{
+                  width: "70%"
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <HomeOutlinedIcon sx={{
+                        color: "#a5ab00"
+                      }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <br />
+
+
+              <br />
+              <Box sx={{ width: '100%', display: "flex", padding: "10px", justifyContent: "center", alignItems: "center" }}>
+                <Stack spacing={2} direction="row">
+                  <Button variant="contained" onClick={handleBack} startIcon={<ChevronLeftIcon />} sx={{
+                    backgroundColor: "#e80078",
+                    "&:hover": {
+                      backgroundColor: "#ab0058",
+                    }
+                  }}>Back</Button>
+                  <Button variant="contained" onClick={handleNext} endIcon={<NavigateNextIcon />} sx={{
+                    backgroundColor: "#02ba5b",
+                    "&:hover": {
+                      backgroundColor: "#008a43",
+                    }
+                  }}>Save & Next</Button>
+                </Stack>
+              </Box>
+            </>
+          ) : (
+            <>
+
+              <Box sx={{ width: '100%', display: "flex", padding: "10px", justifyContent: "center", alignItems: "center" }}>
+                <Stack spacing={2} direction="row">
+                  <Button variant="contained" onClick={handleBack} startIcon={<ChevronLeftIcon />} sx={{
+                    backgroundColor: "#e80078",
+                    "&:hover": {
+                      backgroundColor: "#ab0058",
+                    }
+                  }}>Back for correction</Button>
+                  <Button variant="contained" onClick={handleNext} endIcon={<NavigateNextIcon />} sx={{
+                    backgroundColor: "#02ba5b",
+                    "&:hover": {
+                      backgroundColor: "#008a43",
+                    }
+                  }}>Save information</Button>
+                </Stack>
+              </Box>
+            </>
+          )}
         </Box>
       </Box>
     </div>
