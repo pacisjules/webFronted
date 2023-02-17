@@ -30,7 +30,7 @@ function Sidebar() {
   const [open, setOpen] = React.useState(false);
   const [UserManagement, setUserManagement] = React.useState(false);
   const [ProductManagement, setProductManagement] = React.useState(false);
-
+  const [DistributorsManagement, setDistributorsManagement] = React.useState(false);
   const handleClick = () => {
     setOpen(!open);
   };
@@ -42,7 +42,10 @@ function Sidebar() {
   const handleProduct = ()=>{
     setProductManagement(!ProductManagement);
   };
-
+  
+  const handleDistibutor = ()=>{
+    setDistributorsManagement(!DistributorsManagement);
+  };
 
   const ListbtnStyle = {
     
@@ -185,7 +188,116 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
             </Link>
       </ListItemButton>
 
-      {/* SALES MODULE */}
+       {/* DISTRIBUTORS MODULE */}
+
+       <ListItemButton sx={ListbtnStyle.btn} onClick={handleDistibutor}>
+      
+      <ListItemIcon >
+        <ProductionQuantityLimitsOutlinedIcon sx={ListbtnStyle.iconStyle} className="dashIcon"/>
+      </ListItemIcon>
+      
+      <ListItemText disableTypography
+          primary={
+            <Typography
+              type="body2"
+              className="btnT"
+              sx={
+                ListbtnStyle.btnTitle
+              }
+            >
+              Distributors
+            </Typography>
+          } />
+          {DistributorsManagement ? <ExpandLess /> : <ExpandMore />}
+    </ListItemButton>
+
+    <Collapse in={DistributorsManagement} timeout="auto" unmountOnExit>
+      <List component="div" disablePadding>
+      <Link
+            href="/distributorsManagement/distributors/Distributors"
+            style={{
+              textDecoration: "none",
+            }}
+          >
+        <ListItemButton sx={{ pl: 4 }}>
+          <ListItemIcon>
+            <ViewSidebarIcon sx={ListbtnStyle.iconStyle}/>
+          </ListItemIcon>
+          
+          <ListItemText disableTypography
+          primary={
+            <Typography
+              type="body2"
+              className="btnT"
+              sx={
+                ListbtnStyle.btnTitleSub
+              }
+            >
+              Distributor
+            </Typography>
+          } />
+          
+        </ListItemButton>
+        </Link>
+        <Link
+            href="/distributorsManagement/distributorOrders/Orders"
+            style={{
+              textDecoration: "none",
+            }}
+          >
+        <ListItemButton sx={{ pl: 4 }}>
+          <ListItemIcon>
+            <GroupIcon sx={ListbtnStyle.iconStyle}/>
+          </ListItemIcon>
+          
+            <ListItemText disableTypography
+          primary={
+            <Typography
+              type="body2"
+              className="btnT"
+              sx={
+                ListbtnStyle.btnTitleSub
+              }
+            >
+              Orders
+            </Typography>
+          } />
+          
+        </ListItemButton>
+        </Link>
+
+        <Link
+            href="/distributorsManagement/distributor/Payments"
+            style={{
+              textDecoration: "none",
+            }}
+          >
+        <ListItemButton sx={{ pl: 4 }}>
+          <ListItemIcon>
+            <GroupIcon sx={ListbtnStyle.iconStyle}/>
+          </ListItemIcon>
+          
+            <ListItemText disableTypography
+          primary={
+            <Typography
+              type="body2"
+              className="btnT"
+              sx={
+                ListbtnStyle.btnTitleSub
+              }
+            >
+              Payment
+            </Typography>
+          } />
+          
+        </ListItemButton>
+        </Link>
+        
+
+      </List>
+    </Collapse>
+
+      {/* SALES MODULE
 
       <ListItemButton sx={ListbtnStyle.btn}>
         <ListItemIcon >
@@ -203,7 +315,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
                 Sales
               </Typography>
             } />
-      </ListItemButton>
+      </ListItemButton> */}
 
        {/* PRODUCTS MODULE */}
 
