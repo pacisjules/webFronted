@@ -18,6 +18,8 @@ export const getUser_infos = createAsyncThunk(
 );
 
 const baseUrl = "http://127.0.0.1:8000/addsection";
+
+
 export const AddSection = createAsyncThunk(
   "sections/AddSection",
   async (data) => {
@@ -29,6 +31,8 @@ export const AddSection = createAsyncThunk(
     }
   }
 );
+
+
 const updateUrl= "http://127.0.0.1:8000/section_update"
 export const UPDATEsection = createAsyncThunk(
   "groups/UpdateSection",
@@ -53,8 +57,6 @@ export const DeleteSection = createAsyncThunk(
   "sections/Delete",
   async (data) => {
     try {
-
-
       const delurl="http://127.0.0.1:8000/Delete_section/"+data.Did;
       const response = await axios.delete(delurl,{
         headers: { Authorization: `Bearer ${data.tkn}` },

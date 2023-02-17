@@ -9,9 +9,10 @@ import { getsections, DeleteSection} from "../../../features/sections/sections.j
 import { useDispatch, useSelector } from "react-redux";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { useRouter } from "next/router";
-
+import { DeleteUser } from "../../../features/userinfos/userinfos.js";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Asktodelete from "./Asktodelete.jsx";
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 function Datatable() {
 
@@ -21,7 +22,7 @@ function Datatable() {
   const [Loaddatas, setLoadDatas] = useState([]);
   const [openaskmsg, setOpenaskmsg] = useState('none');
   const [currentID, setCurrentID] = useState('');
-  const [currentsectName, setSectName] = useState('')
+  const [currentUsername, setUserName] = useState('')
 
   const { data: session, status } = useSession({
     required: true,
@@ -59,8 +60,6 @@ function Datatable() {
     {
       field: "status",
       headerName: "Status",
-     // width: 100,
-      type: 'boolean',
       editable: true,
     },
 
@@ -79,16 +78,15 @@ function Datatable() {
               marginLeft:"10px",
               cursor:'pointer'
             }} onClick={()=>{
-
               setOpenaskmsg('flex');
               setCurrentID(params.id);
-              setSectName(params.section_name);
+              setUserName(params.email);
+              console.log(params.id)
             }}/>
 
 
-
-            <EditIcon sx={{
-              color:"#0362fc",
+            <NotificationsIcon sx={{
+              color:"black",
               marginLeft:"10px",
               cursor:'pointer'
             }}
@@ -130,10 +128,10 @@ function Datatable() {
   const DltSection = ()=>{
      const tkn = session.user.token;
      const Did = currentID;
-     dispatch(DeleteSection({Did, tkn}))
-     setLoadDatas((current) => current.filter((item) => item.section_id !== Did));
+     dispatch(DeleteUser({Did, tkn}))
+     setLoadDatas((current) => current.filter((item) => item.user_id !== Did));
      setOpenaskmsg('none')
-     enqueueSnackbar(`Section deleted successfully`, { variant: "success" });
+     enqueueSnackbar(`User deleted successfully`, { variant: "success" });
   }
   
   
@@ -144,7 +142,7 @@ function Datatable() {
     phone: item.phone,
     role: item.role,
     living: item.living,
-    status: item.status,
+    status:item.status==="1"?"Active":"Not Active",
   }));
 
 
@@ -160,7 +158,7 @@ function Datatable() {
       }}
     >
 
-      <Asktodelete sectionName={currentsectName} setopen={openaskmsg} closeBox={closemsgbox} deleteSection={DltSection}/>
+      <Asktodelete currentUsername={currentUsername} setopen={openaskmsg} closeBox={closemsgbox} deleteSection={DltSection}/>
 
       <div style={{
         width: "80%",

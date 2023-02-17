@@ -11,6 +11,19 @@ import Button from "@mui/material/Button";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import Head from 'next/head'
 
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
+import LockResetOutlinedIcon from '@mui/icons-material/LockResetOutlined';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
+
 import classes from "../styles/login/App.module.css";
 
 function Home() {
@@ -31,9 +44,18 @@ function Home() {
   const [hidepass, setHide] = useState("none");
   const [showpass, setShow] = useState("block");
   const [passType, setPasstype] = useState("password");
+  const [open, setOpen] = React.useState(false);
 
   const [weather, setweather] = useState("");
   const [weathericon, setweathericon] = useState("");
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   //Login states
 
@@ -87,9 +109,7 @@ function Home() {
       if (res.ok) {
         router.push("/success");
       } else {
-        enqueueSnackbar("Login failed username or password are not correct ?", {
-          variant: "warning",
-        });
+        setOpen(true);
         console.log("Not Signin");
       }
     }
@@ -277,7 +297,44 @@ function Home() {
           </p>
         </div>
       </div>
+      
+      
+      <Dialog
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+        sx={{
+          backgroundColor:"#78080069"
+        }}
+      >
+        <DialogTitle>{"Wrong credentials"}</DialogTitle>
+        <DialogContent >
+          <DialogContentText id="alert-dialog-slide-description" sx={{
+            display:"flex",
+            justifyContent:"space-between",
+            alignItems:"center",
+            flexDirection:"column"
+          }}>
+            <LockResetOutlinedIcon sx={{
+              color:"red",
+              fontSize:"65px",
+            }}/>
+            Incorrect username or password
+          </DialogContentText>
+
+
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} variant="outline">Okay</Button>
+        </DialogActions>
+      </Dialog>
+
     </div>
+
+
+
   );
 }
 

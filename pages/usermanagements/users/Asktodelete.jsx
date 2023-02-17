@@ -6,43 +6,43 @@ import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import DeleteIcon from '@mui/icons-material/Delete';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
-function Asktodelete({sectionName,closeBox, setopen, deleteSection}) {
+function Asktodelete({ currentUsername, closeBox, setopen, deleteSection }) {
   return (
     <div className={classes.askdelete} style={{
-        display:setopen
+      display: setopen
     }}>
       <div className={classes.msgbox}>
         <div className={classes.msgboxTop}>
           <div className={classes.msgboxTopIconBox}>
             <QuestionMarkIcon sx={{
-                color:"white",
-                fontSize:"60px"
-            }}/>
+              color: "white",
+              fontSize: "60px"
+            }} />
           </div>
-            <h1>Are you sure to delete {sectionName} section</h1>
-            <p>
-              Warning check before to remove this section may cause conflicts in
-              system
-            </p>
-          
+          <h1>Are you sure to delete {currentUsername} user</h1>
+          <p>
+            Warning check before to remove this section may cause conflicts in
+            system
+          </p>
+
         </div>
         <div className={classes.msgboxBottom}>
           <Stack direction="row" spacing={2}>
-            
-            
+
+
             <Button startIcon={<KeyboardBackspaceIcon />} variant="contained" onClick={closeBox} sx={{
-                backgroundColor:"#0054A1", "&:hover":{
-                    backgroundColor:"#00294F",
-                }
+              backgroundColor: "#0054A1", "&:hover": {
+                backgroundColor: "#00294F",
+              }
             }}>
-            Leave it & Back
+              Leave it & Back
             </Button>
-<Button startIcon={<DeleteIcon />} onClick={deleteSection} variant="contained" sx={{
-                backgroundColor:"#D21900",
-                "&:hover":{
-                    backgroundColor:"#710D00",
-                }
-            }}>Delete Section</Button>
+            <Button startIcon={<DeleteIcon />} onClick={deleteSection} variant="contained" sx={{
+              backgroundColor: "#D21900",
+              "&:hover": {
+                backgroundColor: "#710D00",
+              }
+            }}>Delete User</Button>
           </Stack>
         </div>
       </div>
