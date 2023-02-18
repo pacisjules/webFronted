@@ -11,6 +11,12 @@ import SendIcon from "@mui/icons-material/Send";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import StarBorder from "@mui/icons-material/StarBorder";
+import CategoryIcon from '@mui/icons-material/Category';
+import Diversity1Icon from '@mui/icons-material/Diversity1';
+import SellIcon from '@mui/icons-material/Sell';
+import PaymentsIcon from '@mui/icons-material/Payments';
+import TransferWithinAStationIcon from '@mui/icons-material/TransferWithinAStation';
+
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import PointOfSaleOutlinedIcon from "@mui/icons-material/PointOfSaleOutlined";
@@ -193,7 +199,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
        <ListItemButton sx={ListbtnStyle.btn} onClick={handleDistibutor}>
       
       <ListItemIcon >
-        <ProductionQuantityLimitsOutlinedIcon sx={ListbtnStyle.iconStyle} className="dashIcon"/>
+        <TransferWithinAStationIcon sx={ListbtnStyle.iconStyle} className="dashIcon"/>
       </ListItemIcon>
       
       <ListItemText disableTypography
@@ -221,7 +227,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
           >
         <ListItemButton sx={{ pl: 4 }}>
           <ListItemIcon>
-            <ViewSidebarIcon sx={ListbtnStyle.iconStyle}/>
+            <Diversity1Icon sx={ListbtnStyle.iconStyle}/>
           </ListItemIcon>
           
           <ListItemText disableTypography
@@ -247,7 +253,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
           >
         <ListItemButton sx={{ pl: 4 }}>
           <ListItemIcon>
-            <GroupIcon sx={ListbtnStyle.iconStyle}/>
+            <SellIcon sx={ListbtnStyle.iconStyle}/>
           </ListItemIcon>
           
             <ListItemText disableTypography
@@ -274,7 +280,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
           >
         <ListItemButton sx={{ pl: 4 }}>
           <ListItemIcon>
-            <GroupIcon sx={ListbtnStyle.iconStyle}/>
+            <PaymentsIcon sx={ListbtnStyle.iconStyle}/>
           </ListItemIcon>
           
             <ListItemText disableTypography
@@ -350,7 +356,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
             >
           <ListItemButton sx={{ pl: 4 }}>
             <ListItemIcon>
-              <ViewSidebarIcon sx={ListbtnStyle.iconStyle}/>
+              <CategoryIcon sx={ListbtnStyle.iconStyle}/>
             </ListItemIcon>
             
             <ListItemText disableTypography
@@ -376,7 +382,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
             >
           <ListItemButton sx={{ pl: 4 }}>
             <ListItemIcon>
-              <GroupIcon sx={ListbtnStyle.iconStyle}/>
+              <ProductionQuantityLimitsOutlinedIcon sx={ListbtnStyle.iconStyle}/>
             </ListItemIcon>
             
               <ListItemText disableTypography
@@ -394,7 +400,32 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
             
           </ListItemButton>
           </Link>
-          
+          <Link
+              href="/productsmanagement/product/Product"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+          <ListItemButton sx={{ pl: 4 }}>
+            <ListItemIcon>
+              <ProductionQuantityLimitsOutlinedIcon sx={ListbtnStyle.iconStyle}/>
+            </ListItemIcon>
+            
+              <ListItemText disableTypography
+            primary={
+              <Typography
+                type="body2"
+                className="btnT"
+                sx={
+                  ListbtnStyle.btnTitleSub
+                }
+              >
+                Items
+              </Typography>
+            } />
+            
+          </ListItemButton>
+          </Link>
 
         </List>
       </Collapse>
