@@ -75,9 +75,9 @@ background-color: #f9f9f9;
 }
 
 .container .down .chart{
-background-color: #ceffff;
+background-color: #ffeace;
 margin-left: 10px;
-height: 250px;
+height: 200px;
 flex: 1;
 border-radius: 10px;
 padding: 5px;
