@@ -55,7 +55,7 @@
 
 
 .topintro {
-  width: 50%;
+  width: 70%;
   text-align: center;
 }
 
@@ -72,15 +72,17 @@
 
 .topintro h2 {
   font-weight: bolder;
-  font-size: 13px;
+  font-size: 14px;
   color: #4B4B4B;
+  text-decoration: underline;
 }
 
 .topintro p {
   font-weight: 400;
-  font-size: 12px;
+  font-size: 13px;
   color: #4B4B4B;
-  margin: 5px;
+  margin: 10px;
+  text-align: center;
 }
 
 .main .btnlink button{
