@@ -78,6 +78,7 @@ const Dashboard = () => {
             </div>
 
             <div className={style.right}>
+              
               <BarGauge
                 id="gauge"
                 startValue={0}
