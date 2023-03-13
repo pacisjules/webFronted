@@ -100,7 +100,19 @@ const Dashboard = () => {
             </div>
           </div>
           <div className={style.down}>
-            <h2>Down</h2>
+            
+          <div className={style.chart}>
+            <h2>Total Revenue</h2>
+          </div>
+
+          <div className={style.chart}>
+            <h2>Customer Satisfaction</h2>
+          </div>
+
+          <div className={style.chart}>
+            <h2>Target vs Reality</h2>
+          </div>
+
           </div>
         </div>
       </div>

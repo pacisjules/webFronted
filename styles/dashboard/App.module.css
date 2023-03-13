@@ -67,8 +67,22 @@ background-color: #f9f9f9;
 }
 
 .container .down{
-    background-color: rgb(201, 255, 237);
     width: 100%;
     height: 50vh;
     flex: 3;
+    display: flex;
+}
+
+.container .down .chart{
+background-color: #ceffff;
+margin-left: 10px;
+height: 250px;
+flex: 1;
+border-radius: 10px;
+padding: 5px;
+}
+
+.container .down .chart h2{
+    font-size: 11pt;
+    color: #00009e;
 }
