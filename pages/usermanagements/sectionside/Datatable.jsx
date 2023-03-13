@@ -262,7 +262,6 @@ function Datatable() {
             allowDeleting: true,
             allowUpdating: true,
             mode: "popup"
-
           }}
           onRowUpdated={Update_info}
 
