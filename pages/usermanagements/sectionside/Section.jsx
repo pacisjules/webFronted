@@ -16,8 +16,6 @@ export default function Section() {
         <h2>Welcome in section management</h2>
         <p>Section, administrators or authorized users can view and edit user details such as username, email address, contact information, and user-specific settings. They can also control access and permissions to various features, functions, or data within the system based on each user's role or job function.</p>
       </div>
-
-      <br />
       <div className={classes.btnlink}>
         <Link href="/usermanagements/sectionside/AddingForm" >
           <button>ADD NEW SECTION</button>
@@ -26,9 +24,7 @@ export default function Section() {
 
       <br />
 
-
       {/* <Addform /> */}
-
 
       <Datatable />
     </div>
