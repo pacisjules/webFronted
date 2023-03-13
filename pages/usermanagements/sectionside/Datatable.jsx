@@ -246,7 +246,7 @@ function Datatable() {
       <Asktodelete sectionName={currentsectName} setopen={openaskmsg} closeBox={closemsgbox} deleteSection={DltSection} />
 
       <div style={{
-        width: "80%",
+        width: "90%",
         height: "400px",
         backgroundColor: "white",
       }}>
