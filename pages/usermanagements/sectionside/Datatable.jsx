@@ -7,9 +7,9 @@ import { useRouter } from "next/router";
 import "devextreme/dist/css/dx.common.css";
 import "devextreme/dist/css/dx.material.blue.dark.compact.css";
 
-import { useSession} from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Asktodelete from "./Asktodelete.jsx";
-import { UPDATEsection} from "../../../features/sections/sections.js";
+import { UPDATEsection } from "../../../features/sections/sections.js";
 
 
 import DataGrid, {
@@ -229,7 +229,7 @@ function Datatable() {
   function cellRender(e) {
     return (
       <>
-        {e.data.status=="1"?"Active":"Not Active"}
+        {e.data.status == "1" ? "Active" : "Not Active"}
       </>
     );
   }
@@ -273,20 +273,20 @@ function Datatable() {
             showTitle: true,
           }}
         >
-          
+
 
           <Column dataField="section_id" caption="Section ID" dataType="Guid" allowEditing={false} width={70} visible={false} />
           <Column dataField="section_name" />
           <Column dataField="description" />
-          
-          <Column dataField="status"
-          width={100}
-          allowSorting={false}
-          cellRender={cellRender}
-          allowEditing={false}
-        />
 
-          <Column dataField="status" dataType="boolean" visible={false}/>
+          <Column dataField="status"
+            width={100}
+            allowSorting={false}
+            cellRender={cellRender}
+            allowEditing={false}
+          />
+
+          <Column dataField="status" dataType="boolean" visible={false} />
 
           <Editing
             mode="popup"
@@ -362,9 +362,9 @@ function Datatable() {
           <HeaderFilter visible={true} />
 
           <Summary>
-            <TotalItem column="FirstName" summaryType="count" />
+            <TotalItem column="section_name" summaryType="count" />
 
-            <TotalItem column="Salary" summaryType="sum" valueFormat="currency" />
+            {/* <TotalItem column="Salary" summaryType="sum" valueFormat="currency" /> */}
           </Summary>
         </DataGrid>
       </div>
