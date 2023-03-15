@@ -17,9 +17,9 @@ export const getUser_infos = createAsyncThunk(
   }
 );
 
-const baseUrl = "http://127.0.0.1:8000/add_store";
-export const AddStore = createAsyncThunk(
-  "groups/AddStore",
+const baseUrl = "http://127.0.0.1:8000/add_customer";
+export const AddCustomer = createAsyncThunk(
+  "groups/AddDistributor",
   async (data) => {
     try {
       const response = await axios.post(baseUrl, data);
@@ -29,10 +29,10 @@ export const AddStore = createAsyncThunk(
     }
   }
 );
-const updateUrl = "http://127.0.0.1:8000/stores_update";
+const updateUrl = "http://127.0.0.1:8000/customer_update";
 
-export const UPDATEStore = createAsyncThunk(
-  "groups/UpdateGroup",
+export const UPDATECustomer = createAsyncThunk(
+  "groups/UpdateDistributor",
   async (data) => {
    
     try {
@@ -48,11 +48,11 @@ export const UPDATEStore = createAsyncThunk(
   }
 );
 
-export const DeleteStore = createAsyncThunk(
-  "groups/Deletestore",
+export const DeleteCustomer = createAsyncThunk(
+  "groups/Deletecategory",
   async (data) => {
     try {
-      const delurl="http://127.0.0.1:8000/Delete_stores/"+data.Did;
+      const delurl="http://127.0.0.1:8000/Delete_customer/"+data.Did;
       const response = await axios.delete(delurl,{
         headers: { Authorization: `Bearer ${data.tkn}` },
       });
@@ -92,11 +92,11 @@ const initialState = {
   Userinfos: null,
   role: "",
   msg:null,
-  inventorytbl:[],
+  categorytbl:[],
   storedtl:[],
-  descript: "",
-  statu: "",
-  numberinv: "",
+  storetbl:[],
+  statu: [],
+  groupnames: "",
 };
 
 export const groups = createSlice({
@@ -108,18 +108,16 @@ export const groups = createSlice({
       state.msg = action.payload;
     },
 
-    getinventory:(state, action)=>{
-      state.inventorytbl=action.payload.items;
+    getcustomer:(state, action)=>{
+      state.categorytbl=action.payload.items;
     },
-    getinventorydetail:(state,action)=>{
+    getdistributordetail:(state,action)=>{
       state.storedtl=action.payload;
     },
-    getnumber:(state,action)=>{
-      state.numberinv=action.payload;
+    
+    getdetailDis:(state,action)=>{
+      state.statu=action.payload;
     },
-    // getstatus:(state,action)=>{
-    //   state.statu=action.payload;
-    // },
     // getgroupname:(state,action)=>{
     //   state.groupnames=action.payload;
     // },
@@ -131,28 +129,22 @@ export const groups = createSlice({
   },
 
   extraReducers: (builder) => {
-    builder.addCase(AddStore.pending, (state) => {});
+    builder.addCase(AddCustomer.pending, (state) => {});
 
-    builder.addCase(AddStore.fulfilled, (state, action) => {
+    builder.addCase(AddCustomer.fulfilled, (state, action) => {
       state.msg = action.payload.Message;
     });
 
-    builder.addCase(DeleteStore.fulfilled, (state, action) => {
+    builder.addCase(DeleteCustomer.fulfilled, (state, action) => {
       console.log(action.payload)
     });
 
-    builder.addCase(UPDATEStore.fulfilled, (state, action) => {
+    builder.addCase(UPDATECustomer.fulfilled, (state, action) => {
       console.log(action.payload);
     });
 
   },
-
-
-
-
-
-
 });
 
-export const { change_msg, getinventory, getinventorydetail, getnumber} = groups.actions;
+export const { change_msg, getcustomer, getdistributordetail, getdetailDis} = groups.actions;
 export default groups.reducer;

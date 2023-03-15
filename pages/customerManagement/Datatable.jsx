@@ -1,6 +1,6 @@
 import React,{ useEffect, useState } from "react";
 import axios from 'axios';
-import {getdistributor, DeleteDistributor, UPDATEDistributor} from "../../../features/distributor/distributor.js";
+import {getcustomer, DeleteCustomer, UPDATECustomer} from "../../features/customers/customer.js";
 import { useDispatch, useSelector } from "react-redux";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { useRouter } from "next/router";
@@ -107,7 +107,7 @@ const makereport = () => {
   doc.setFontSize(12);
   doc.setFont("helvetica", "bold");
   doc.setTextColor("black");
-  doc.text(`ID: ${itm.distributor_id} User ID:${itm.user_id}`, 40, 75); // X, Y
+  doc.text(`ID: ${itm.cust_id} User ID:${itm.user_id}`, 40, 75); // X, Y
   doc.setFont("helvetica", "normal");
   doc.text(`Group: ${itm.names} Email: ${itm.email}`, 40, 95); // X, Y
   // Add a colored rectangle
@@ -177,13 +177,13 @@ const columnes = [
 
 
   const getdata = async ()=>{
-    await axios.get("http://127.0.0.1:8000/all_distributors?page=1&size=50", { headers: { Authorization: `Bearer ${session.user.token}` } })
+    await axios.get("http://127.0.0.1:8000/all_customers?page=1&size=50", { headers: { Authorization: `Bearer ${session.user.token}` } })
     .then((response)=> setLoadDatas(response.data.items))
   }
 
   useEffect(() => {
     getdata()
-    dispatch(getdistributor(Loaddatas))
+    dispatch(getcustomer(Loaddatas))
   }, []);
 
 //   const mytbl = useSelector((state) => state.sections.sectionstbl);
@@ -197,11 +197,11 @@ const columnes = [
   }
 
 
-  const DltDistributor = ()=>{
+  const DltCustomer = ()=>{
      const tkn = session.user.token;
      const Did = currentID;
      dispatch(DeleteDistributor({Did, tkn}))
-     setLoadDatas((current) => current.filter((item) => item.distributor_id !== Did));
+     setLoadDatas((current) => current.filter((item) => item.cust_id !== Did));
      setOpenaskmsg('none')
      enqueueSnackbar(`Distributor deleted successfully`, { variant: "success" });
   }
@@ -212,19 +212,25 @@ const columnes = [
     let today = new Date();
 
     const infos = {
-      distributor_id: e.data.distributor_id,
+      cust_id: e.data.cust_id,
       user_id: localStorage.getItem('id'),
       names: e.data.names,
+      tin: e.data.tin,
+      bio: e.data.bio,
       email: e.data.email,
       phone: e.data.phone,
+      identity_number:e.data.identity_number,
+      province:e.data.province,
+      district:e.data.district,
       address: e.data.address,
+      qr_name:e.data.qr_name,
       status: e.data.status == true ? '1' : '0',
       created_at: e.data.created_at,
       last_update_at: today.toLocaleDateString()
     };
 
     //group send variables to Redux
-    dispatch(UPDATEDistributor({ infos, tkn }));
+    dispatch(UPDATECustomer({ infos, tkn }));
 
     enqueueSnackbar(`${e.data.names} has been updated`, { variant: "success" });
   }
@@ -250,7 +256,7 @@ const columnes = [
       }}
     >
 
-      <Asktodelete storeName={currentcategoryName} setopen={openaskmsg} closeBox={closemsgbox} deleteStore={DltDistributor}/>
+      <Asktodelete storeName={currentcategoryName} setopen={openaskmsg} closeBox={closemsgbox} deleteStore={DltCustomer}/>
 
       <div style={{
         width: "90%",
@@ -260,7 +266,7 @@ const columnes = [
       <DataGrid
           id="grid-container"
           dataSource={Loaddatas}
-          keyExpr="distributor_id"
+          keyExpr="cust_id"
           allowColumnReordering={true}
           rowAlternationEnabled={true}
           editing={{
@@ -272,7 +278,7 @@ const columnes = [
           onRowUpdated={Update_info}
 
           onExporting={onExporting}
-          onRowRemoved={DltDistributor}
+          onRowRemoved={DltCustomer}
           width={"100%"}
           style={{
             showBorders: true,
@@ -281,10 +287,15 @@ const columnes = [
         >
 
 
-          <Column dataField="distributor_id" caption="Distributor ID" dataType="Guid" allowEditing={false} width={70} visible={false} />
+          <Column dataField="cust_id" caption="Customer ID" dataType="Guid" allowEditing={false} width={70} visible={false} />
           <Column dataField="names" />
+          <Column dataField="tin" />
+          <Column dataField="bio" />
           <Column dataField="email" />
           <Column dataField="phone" />
+          <Column dataField="identity_number" />
+          <Column dataField="province" />
+          <Column dataField="district" />
           <Column dataField="address" />
 
           <Column dataField="status"
@@ -311,10 +322,15 @@ const columnes = [
 
             <Form>
               <Item itemType="group" colCount={2} colSpan={2}>
-                <Item dataField="distributor_id" visible={false} />
+                <Item dataField="cust_id" visible={false} />
                 <Item dataField="names" />
+                <Item dataField="tin" />
+                <Item dataField="bio" />
                 <Item dataField="phone" />
                 <Item dataField="email" />
+                <Item dataField="identity_number" />
+                <Item dataField="province" />
+                <Item dataField="district" />
                 <Item dataField="address" />
                 <Item dataField="status" />
               </Item>
@@ -341,7 +357,7 @@ const columnes = [
                 <div>
 
                   {Loaddatas
-                    .filter((item) => item.distributor_id === e.data.key)
+                    .filter((item) => item.cust_id === e.data.key)
                     .map((itm) => {
                       return (
                         <div
@@ -353,7 +369,7 @@ const columnes = [
                           }}
                         >
                           <h3>
-                            Distributor names: {itm.names} and Status: {itm.status == "1" ? "Activated" : "Not Active"}
+                            Customer names: {itm.names} and Status: {itm.status == "1" ? "Activated" : "Not Active"}
                           </h3>
                           <br />
 

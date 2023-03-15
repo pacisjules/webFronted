@@ -432,23 +432,31 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
 
 
       <ListItemButton sx={ListbtnStyle.btn}>
-        <ListItemIcon >
-          <Groups2Icon sx={ListbtnStyle.iconStyle} className="dashIcon"/>
-        </ListItemIcon>
-        <ListItemText disableTypography
-            primary={
-              <Typography
-                type="body2"
-                className="btnT"
-                sx={
-                  ListbtnStyle.btnTitle
-                }
-              >
-                Customers
-              </Typography>
-            } />
+      
+      <ListItemIcon >
+        <InventoryIcon sx={ListbtnStyle.iconStyle} className="dashIcon"/>
+      </ListItemIcon>
+      <Link
+        href="/customerManagement/Customers"
+        style={{
+          textDecoration: "none",
+        }}
+      >
+      <ListItemText disableTypography
+          primary={
+            <Typography
+              type="body2"
+              className="btnT"
+              sx={
+                ListbtnStyle.btnTitle
+              }
+            >
+              Customers
+            </Typography>
+          }/>
+          </Link>
+    </ListItemButton>
 
-      </ListItemButton>
 
       <ListItemButton sx={ListbtnStyle.btn}>
         <ListItemIcon >

@@ -142,7 +142,6 @@ export const groups = createSlice({
     });
 
     builder.addCase(UPDATEProduct.fulfilled, (state, action) => {
-      state.msg = action.payload.Message;
       console.log(action.payload);
     });
 
