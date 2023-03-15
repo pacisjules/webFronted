@@ -111,7 +111,7 @@ const makereport = () => {
   doc.setTextColor("black");
   doc.text(`ID: ${itm.product_id} User ID:${itm.user_id}`, 40, 75); // X, Y
   doc.setFont("helvetica", "normal");
-  doc.text(`Group: ${itm.product_name} Unity Type: ${unity_type} Description: ${itm.description}`, 40, 95); // X, Y
+  doc.text(`Group: ${itm.product_name}  Description: ${itm.description}`, 40, 95); // X, Y
   // Add a colored rectangle
   doc.setFillColor(0, 179, 36);
   doc.rect(40, 120, 520, 3, "F");
