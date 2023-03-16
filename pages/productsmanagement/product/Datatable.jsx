@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import {getproduct,DeleteProduct, UPDATEProduct} from "../../../features/products/products.js";
+import {getproduct,DeleteProduct, UPDATEProduct, getcategory, getstore} from "../../../features/products/products.js";
 import { useDispatch, useSelector } from "react-redux";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { useRouter } from "next/router";
@@ -15,6 +15,7 @@ import DataGrid, {
   GroupPanel,
   Pager,
   Paging,
+  Lookup,
   SearchPanel,
   Summary,
   TotalItem,
@@ -71,7 +72,8 @@ function Datatable() {
   const [openaskmsg, setOpenaskmsg] = useState('none');
   const [currentID, setCurrentID] = useState('');
   const [currentproductName, setproductName] = useState('')
-
+  const [LoadStores, setLoadStores] = useState([]);
+  const [LoadCategory, setLoadCategory] = useState([]);
   const { data: session, status } = useSession({
     required: true,
   });
@@ -183,9 +185,23 @@ const columnes = [
     .then((response)=> setLoadDatas(response.data.items))
   }
 
+  const getdatastore = async ()=>{
+    await axios.get("http://127.0.0.1:8000/store_names", { headers: { Authorization: `Bearer ${session.user.token}` } })
+    .then((response)=> setLoadStores(response.data))
+  };
+  
+const getcategoriess = async ()=>{
+  await axios.get("http://127.0.0.1:8000/category_names", { headers: { Authorization: `Bearer ${session.user.token}` } })
+  .then((response)=> setLoadCategory(response.data))
+};
+
   useEffect(() => {
     getdata()
+    getdatastore()
+    getcategoriess()
     dispatch(getproduct(Loaddatas))
+    dispatch(getstore(LoadStores))
+    dispatch(getcategory(LoadCategory))
   }, []);
 
 //   const mytbl = useSelector((state) => state.sections.sectionstbl);
@@ -284,11 +300,22 @@ const columnes = [
             showTitle: true,
           }}
         >
-
+         <Editing
+            mode="popup"
+            allowUpdating={true}
+            allowAdding={true}
+            allowDeleting={true}
+          />
 
           <Column dataField="product_id" caption="Product ID" dataType="Guid" allowEditing={false} width={70} visible={false} />
           <Column dataField="product_name" />
           <Column dataField="product_price" />
+          <Column dataField="store_id" caption="Store" width={125}>
+                  <Lookup dataSource={LoadStores} valueExpr="store_id" displayExpr="store_name" />
+           </Column>
+           <Column dataField="category_id" caption="Product Category" width={125}>
+                  <Lookup dataSource={LoadCategory} valueExpr="category_id" displayExpr="category_name" />
+           </Column>
           <Column dataField="unity_type" />
           <Column dataField="description" />
 
@@ -301,7 +328,7 @@ const columnes = [
 
           <Column dataField="status" dataType="boolean" visible={false} />
 
-          <Editing
+          {/* <Editing
             mode="popup"
             allowUpdating={true}
             allowAdding={true}
@@ -324,7 +351,7 @@ const columnes = [
                 <Item dataField="status" />
               </Item>
             </Form>
-          </Editing>
+          </Editing> */}
 
           <Paging defaultPageSize={5} />
           <Pager allowedPageSizes={pageSizes} showPageSizeSelector={true} />

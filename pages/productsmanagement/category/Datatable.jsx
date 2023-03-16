@@ -1,6 +1,6 @@
 import React,{ useEffect, useState } from "react";
 import axios from 'axios';
-import {getcategory, DeleteCategory, UPDATEcategory} from "../../../features/category/category.js";
+import {getcategory,getstores, DeleteCategory, UPDATEcategory} from "../../../features/category/category.js";
 import { useDispatch, useSelector } from "react-redux";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { useRouter } from "next/router";
@@ -15,6 +15,7 @@ import DataGrid, {
   Pager,
   Paging,
   SearchPanel,
+  Lookup,
   Summary,
   TotalItem,
   Editing,
@@ -70,6 +71,7 @@ function Datatable() {
   const [openaskmsg, setOpenaskmsg] = useState('none');
   const [currentID, setCurrentID] = useState('');
   const [currentcategoryName, setCategoryName] = useState('')
+  const [loadStores, setLoadStores] = useState([]);
 
   const { data: session, status } = useSession({
     required: true,
@@ -182,9 +184,17 @@ const columnes = [
     .then((response)=> setLoadDatas(response.data.items))
   }
 
+  const getdatastore = async ()=>{
+    await axios.get("http://127.0.0.1:8000/store_names", { headers: { Authorization: `Bearer ${session.user.token}` } })
+    .then((response)=> setLoadStores(response.data))
+  }
+
   useEffect(() => {
     getdata()
+    getdatastore()
+
     dispatch(getcategory(Loaddatas))
+    dispatch(getstores(loadStores))
   }, []);
 
 //   const mytbl = useSelector((state) => state.sections.sectionstbl);
@@ -215,6 +225,7 @@ const columnes = [
     const infos = {
       category_id: e.data.category_id,
       user_id: localStorage.getItem('id'),
+      store_id:e.data.store_id,
       category_name: e.data.category_name,
       description: e.data.description,
       status: e.data.status == true ? '1' : '0',
@@ -276,10 +287,18 @@ const columnes = [
             showTitle: true,
           }}
         >
-
+          <Editing
+            mode="popup"
+            allowUpdating={true}
+            allowAdding={true}
+            allowDeleting={true}
+          />
 
           <Column dataField="category_id" caption="Category ID" dataType="Guid" allowEditing={false} width={70} visible={false} />
           <Column dataField="category_name" />
+          <Column dataField="store_id" caption="Store" width={125}>
+                  <Lookup dataSource={loadStores} valueExpr="store_id" displayExpr="store_name" />
+           </Column>
           <Column dataField="description" />
 
           <Column dataField="status"
@@ -291,7 +310,7 @@ const columnes = [
 
           <Column dataField="status" dataType="boolean" visible={false} />
 
-          <Editing
+          {/* <Editing
             mode="popup"
             allowUpdating={true}
             allowAdding={true}
@@ -302,17 +321,20 @@ const columnes = [
               showTitle={true}
               width={700}
               height={525}
-            />
+            /> */}
 
-            <Form>
+            {/* <Form>
               <Item itemType="group" colCount={2} colSpan={2}>
                 <Item dataField="category_id" visible={false} />
                 <Item dataField="category_name" />
+                <Column dataField="store_id" caption="Store" width={125}>
+                  <Lookup dataSource={loadStores} valueExpr="store_id" displayExpr="store_name" />
+               </Column>
                 <Item dataField="description" />
                 <Item dataField="status" />
               </Item>
             </Form>
-          </Editing>
+          </Editing> */}
 
           <Paging defaultPageSize={5} />
           <Pager allowedPageSizes={pageSizes} showPageSizeSelector={true} />
