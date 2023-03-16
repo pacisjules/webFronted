@@ -17,7 +17,7 @@ export const getUser_infos = createAsyncThunk(
   }
 );
 
-const baseUrl = "http://127.0.0.1:8000/add_customer";
+const baseUrl = "http://127.0.0.1:8000/addCustomer";
 export const AddCustomer = createAsyncThunk(
   "groups/AddDistributor",
   async (data) => {
@@ -29,7 +29,7 @@ export const AddCustomer = createAsyncThunk(
     }
   }
 );
-const updateUrl = "http://127.0.0.1:8000/customer_update";
+const updateUrl = "http://127.0.0.1:8000/Customer_update";
 
 export const UPDATECustomer = createAsyncThunk(
   "groups/UpdateDistributor",
@@ -52,7 +52,7 @@ export const DeleteCustomer = createAsyncThunk(
   "groups/Deletecategory",
   async (data) => {
     try {
-      const delurl="http://127.0.0.1:8000/Delete_customer/"+data.Did;
+      const delurl="http://127.0.0.1:8000/Delete_Customer/"+data.Did;
       const response = await axios.delete(delurl,{
         headers: { Authorization: `Bearer ${data.tkn}` },
       });
