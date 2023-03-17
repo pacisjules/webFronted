@@ -303,7 +303,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
       </List>
     </Collapse>
 
-      {/* SALES MODULE
+      {/* SALES MODULE */}
 
       <ListItemButton sx={ListbtnStyle.btn}>
         <ListItemIcon >
@@ -321,7 +321,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
                 Sales
               </Typography>
             } />
-      </ListItemButton> */}
+      </ListItemButton>
 
        {/* PRODUCTS MODULE */}
 
@@ -401,7 +401,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
           </ListItemButton>
           </Link>
           <Link
-              href="/productsmanagement/product/Product"
+              href="/productsmanagement/items/Item"
               style={{
                 textDecoration: "none",
               }}
