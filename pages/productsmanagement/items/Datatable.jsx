@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import {DeleteItem, UPDATEItemt, getproduct, getitems, UPDATEItem} from "../../../features/items/item.js";
+import {DeleteItem, getproduct, getitems, UPDATEItem} from "../../../features/items/item.js";
 import { useDispatch, useSelector } from "react-redux";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { useRouter } from "next/router";
@@ -279,7 +279,7 @@ const columnes = [
           allowColumnReordering={true}
           rowAlternationEnabled={true}
           editing={{
-            allowAdding: false,
+            allowAdding: true,
             allowDeleting: true,
             allowUpdating: true,
             mode: "popup"
@@ -294,12 +294,6 @@ const columnes = [
             showTitle: true,
           }}
         >
-         <Editing
-            mode="popup"
-            allowUpdating={true}
-            allowAdding={true}
-            allowDeleting={true}
-          />
 
           <Column dataField="item_id" caption="Product ID" dataType="Guid" allowEditing={false} width={70} visible={false} />
           <Column dataField="product_id" caption="Product name" width={125}>
@@ -318,14 +312,14 @@ const columnes = [
 
           <Column dataField="status" dataType="boolean" visible={false} />
 
-          {/* <Editing
+          <Editing
             mode="popup"
             allowUpdating={true}
             allowAdding={true}
             allowDeleting={true}
           >
             <Popup
-              title="Product Information"
+              title="Items Information"
               showTitle={true}
               width={700}
               height={525}
@@ -333,15 +327,14 @@ const columnes = [
 
             <Form>
               <Item itemType="group" colCount={2} colSpan={2}>
-                <Item dataField="product_id" visible={false} />
-                <Item dataField="product_name" />
+                <Item dataField="item_id" visible={false} />
+                <Item dataField="product_id" />
+                <Item dataField="quantity" />
                 <Item dataField="product_price" />
-                <Item dataField="unity_type" />
-                <Item dataField="description" />
                 <Item dataField="status" />
               </Item>
             </Form>
-          </Editing> */}
+          </Editing>
 
           <Paging defaultPageSize={5} />
           <Pager allowedPageSizes={pageSizes} showPageSizeSelector={true} />
