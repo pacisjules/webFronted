@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 import { useSession, signIn, signOut } from "next-auth/react";
-import Asktodelete from "./Asktodelete.jsx";
+import Announcement from "./Announcement.jsx";
 import "devextreme/dist/css/dx.common.css";
 import "devextreme/dist/css/dx.material.blue.dark.compact.css";
 import DataGrid, {
@@ -209,12 +209,13 @@ const columnes = [
 
 
   const DltCategory = ()=>{
-     const tkn = session.user.token;
-     const Did = currentID;
-     dispatch(DeleteCategory({Did, tkn}))
-     setLoadDatas((current) => current.filter((item) => item.category_id !== Did));
-     setOpenaskmsg('none')
-     enqueueSnackbar(`Category deleted successfully`, { variant: "success" });
+    //  const tkn = session.user.token;
+    //  const Did = currentID;
+    //  dispatch(DeleteCategory({Did, tkn}))
+    //  setLoadDatas((current) => current.filter((item) => item.category_id !== Did));
+    //  setOpenaskmsg('none')
+     enqueueSnackbar(`Not possible to deleted Category `, { variant: "error" });
+    router.push("category/Announcement");
   }
   
   
@@ -258,7 +259,7 @@ const columnes = [
       }}
     >
 
-      <Asktodelete storeName={currentcategoryName} setopen={openaskmsg} closeBox={closemsgbox} deleteStore={DltCategory}/>
+      <Announcement storeName={currentcategoryName} setopen={openaskmsg} closeBox={closemsgbox} deleteStore={DltCategory}/>
 
       <div style={{
         width: "90%",

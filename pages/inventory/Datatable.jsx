@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 import { useSession, signIn, signOut } from "next-auth/react";
-import Asktodelete from "./Asktodelete.jsx";
+import Announcement from "./Announcement.jsxx";
 import "devextreme/dist/css/dx.common.css";
 import "devextreme/dist/css/dx.material.blue.dark.compact.css";
 
@@ -197,12 +197,13 @@ function Datatable() {
 
 
   const DltStore = ()=>{
-     const tkn = session.user.token;
-     const Did = currentID;
-     dispatch(DeleteStore({Did, tkn}))
-     setLoadDatas((current) => current.filter((item) => item.store_id !== Did));
-     setOpenaskmsg('none')
-     enqueueSnackbar(`Store deleted successfully`, { variant: "success" });
+    //  const tkn = session.user.token;
+    //  const Did = currentID;
+    //  dispatch(DeleteStore({Did, tkn}))
+    //  setLoadDatas((current) => current.filter((item) => item.store_id !== Did));
+    //  setOpenaskmsg('none')
+    //  enqueueSnackbar(`Not Possible to Delete Store`, { variant: "error" });
+     router.push('/inventory/Announcement');
   }
   
   
@@ -245,7 +246,7 @@ function Datatable() {
       }}
     >
 
-      <Asktodelete storeName={currentstoreName} setopen={openaskmsg} closeBox={closemsgbox} deleteStore={DltStore}/>
+      <Announcement storeName={currentstoreName} setopen={openaskmsg} closeBox={closemsgbox} deleteStore={DltStore}/>
 
       <div style={{
         width: "90%",

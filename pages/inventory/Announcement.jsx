@@ -2,11 +2,11 @@ import React from "react";
 import classes from "../../styles/section/App.module.css";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
-import DeleteIcon from '@mui/icons-material/Delete';
+import AnnouncementIcon from '@mui/icons-material/Announcement';
+import Link from "next/link";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
-function Asktodelete({storeName,closeBox, setopen, deleteStore}) {
+function Announcement({storeName,closeBox, setopen, deleteStore}) {
   return (
     <div className={classes.askdelete} style={{
         display:setopen
@@ -14,17 +14,16 @@ function Asktodelete({storeName,closeBox, setopen, deleteStore}) {
       <div className={classes.msgbox}>
         <div className={classes.msgboxTop}>
           <div className={classes.msgboxTopIconBox}>
-            <QuestionMarkIcon sx={{
+            <AnnouncementIcon sx={{
                 color:"white",
                 fontSize:"60px"
             }}/>
           </div>
-            <h1>Are you sure to delete {storeName} store</h1>
+            <h1>Not possible to delete {storeName} store</h1>
             <p>
-              Warning check before to remove this store may cause conflicts in
-              system
-            </p>
-          
+              This the warning which inform you the situation here
+            
+             You can not delete the store because it is contained product inside of it</p>
         </div>
         <div className={classes.msgboxBottom}>
           <Stack direction="row" spacing={2}>
@@ -35,14 +34,22 @@ function Asktodelete({storeName,closeBox, setopen, deleteStore}) {
                     backgroundColor:"#00294F",
                 }
             }}>
-            Leave it & Back
+             <Link
+              href="/inventory/Inventory"
+              style={{
+              textDecoration: "none",
+              color: "white"
+             }}
+             >
+              Back
+             </Link>
             </Button>
-<Button startIcon={<DeleteIcon />} onClick={deleteStore} variant="contained" sx={{
+{/* <Button startIcon={<DeleteIcon />} onClick={deleteStore} variant="contained" sx={{
                 backgroundColor:"#D21900",
                 "&:hover":{
                     backgroundColor:"#710D00",
                 }
-            }}>Delete Store</Button>
+            }}>Delete Store</Button> */}
           </Stack>
         </div>
       </div>
@@ -50,4 +57,4 @@ function Asktodelete({storeName,closeBox, setopen, deleteStore}) {
   );
 }
 
-export default Asktodelete;
+export default Announcement;
