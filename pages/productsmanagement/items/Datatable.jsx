@@ -186,7 +186,7 @@ const columnes = [
   }
 
   const getdataprod = async ()=>{
-    await axios.get("http://127.0.0.1:8000/product_names", { headers: { Authorization: `Bearer ${session.user.token}` } })
+    await axios.get("http://127.0.0.1:8000/get_products", { headers: { Authorization: `Bearer ${session.user.token}` } })
     .then((response)=> setLoadProducts(response.data))
   };
   

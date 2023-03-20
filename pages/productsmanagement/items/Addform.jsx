@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AddItem,change_msg, getproduct } from "../../../features/items/item.js";
+import { AddItem,change_msg, getproduct, getitempro } from "../../../features/items/item.js";
 import { useDispatch } from "react-redux";
 import Button from "@mui/material/Button";
 import Select from '@mui/material/Select';
@@ -20,8 +20,8 @@ function Addform(props) {
   const { enqueueSnackbar } = useSnackbar();
 
   const [productname, setProductname] = useState("");
-  const [productprice, setProductprice] = useState(null);
-  const [quantity, setQuantity] = useState(null);
+  const [productprice, setProductprice] = useState(0.00);
+  const   [quantity, setQuantity] = useState(0);
   const [LoadProducts, setLoadProducts] = useState([]);
 
   const [productnameError, SetProductnameError] = useState(false);
@@ -32,7 +32,7 @@ function Addform(props) {
   const [productpriceLabel, SetProductpriceLabel] = useState("Product Price");
   const [quantityLabel, SetquantityLabel] = useState("Quantity");
  
-
+  const [LoadItem, setLoadItem]  =useState([]);
 
  
 
@@ -44,16 +44,23 @@ function Addform(props) {
 
 
   const getdataprod = async ()=>{
-    await axios.get("http://127.0.0.1:8000/product_names", { headers: { Authorization: `Bearer ${session.user.token}` } })
+    await axios.get("http://127.0.0.1:8000/get_products", { headers: { Authorization: `Bearer ${session.user.token}` } })
     .then((response)=> setLoadProducts(response.data))
   };
+  
+  const getdataitem = async ()=>{
+    await axios.get("http://127.0.0.1:8000/get_items", { headers: { Authorization: `Bearer ${session.user.token}` } })
+    .then((response)=> setLoadItem(response.data))
+  };
+
 
   
 
   useEffect(() => {
     getdataprod()
-   
+    getdataitem()
     dispatch(getproduct(LoadProducts))
+    dispatch(getitempro(LoadItem));
   }, []);
 
 
@@ -74,14 +81,34 @@ function Addform(props) {
     } else if (quantity === "") {
       SetquantityError(true);
       SetquantityLabel("Add quantity");
-    } else {
+    } else{
       // whatever you want to send
-      const data = {
-        user_id: localStorage.getItem('id'),
-        product_id:productname,
-        product_price: productprice,
-        quantity: quantity,
-      };
+      // let data ;
+      // for (var i = 0; i < LoadItem.length; i++) {
+      //   if (LoadItem[i].product_id === productname) {
+      //      data = {
+      //       user_id: localStorage.getItem('id'),
+      //       product_id:productname,
+      //       product_price: productprice,
+      //       quantity: quantity + LoadItem[i].quantity,
+      //     };
+            
+      //   }
+      //   else {
+      //     data = {
+      //       user_id: localStorage.getItem('id'),
+      //       product_id:productname,
+      //       product_price: productprice,
+      //       quantity: quantity ,
+      //     };
+      //   }
+      // }
+    const  data = {
+              user_id: localStorage.getItem('id'),
+              product_id:productname,
+              product_price: productprice,
+              quantity: quantity ,
+             };
 
       dispatch(AddItem(data));
       enqueueSnackbar(`${productname} has been added`, { variant: "success" });

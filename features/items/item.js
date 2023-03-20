@@ -94,7 +94,7 @@ const initialState = {
   msg:null,
   producttbl:[],
   storetbl:[],
-  groupnames: "",
+  groupnames: [],
 };
 
 export const groups = createSlice({
@@ -111,10 +111,10 @@ export const groups = createSlice({
     },
     getproduct:(state,action)=>{
       state.producttbl=action.payload;
-    }
-    // getgroupname:(state,action)=>{
-    //   state.groupnames=action.payload;
-    // },
+    },
+    getitempro:(state,action)=>{
+      state.groupnames=action.payload;
+    },
 
 
 
@@ -146,5 +146,5 @@ export const groups = createSlice({
 
 });
 
-export const { change_msg, getproduct, getitems} = groups.actions;
+export const { change_msg, getproduct, getitems, getitempro} = groups.actions;
 export default groups.reducer;
