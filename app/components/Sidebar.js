@@ -551,6 +551,12 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
             <ListItemIcon>
               <LockPersonIcon sx={ListbtnStyle.iconStyle}/>
             </ListItemIcon>
+            <Link
+              href="/usermanagements/permissions/Permissions"
+              style={{
+                textDecoration: "none",
+              }}
+            >
             <ListItemText disableTypography
             primary={
               <Typography
@@ -563,6 +569,7 @@ const iconStyle = { fontSize: "20px", color: "#0054A1" }
                 Permission
               </Typography>
             } />
+            </Link>
           </ListItemButton>
 
           <Link
