@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { getToken } from "next-auth/react";
-const Urls = "http://127.0.0.1:8000/users/me";
 
+
+const Urls = "http://127.0.0.1:8000/users/me";
 export const getUser_infos = createAsyncThunk(
   "userinfos/get_infos",
 

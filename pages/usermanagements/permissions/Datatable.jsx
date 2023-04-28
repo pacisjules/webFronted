@@ -256,8 +256,6 @@ function Datatable() {
       }}
     >
 
-      
-
       <div style={{
         width: "90%",
         height: "400px",
@@ -280,13 +278,13 @@ function Datatable() {
 
           onExporting={onExporting}
           onRowRemoved={DltDetails}
+          onRowInserting={addPermission}
           width={"100%"}
           style={{
             showBorders: true,
             showTitle: true,
           }}
         >
-
 
           <Column dataField="section_id" caption="Section ID" dataType="Guid" allowEditing={false} width={70} visible={false} />
           <Column dataField="section_name" />
@@ -310,8 +308,8 @@ function Datatable() {
             <Popup
               title="Section Information"
               showTitle={true}
-              // width={500}
-              // height={325}
+              width={500}
+              height={325}
             />
 
             <Form>
