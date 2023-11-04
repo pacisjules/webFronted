@@ -129,7 +129,6 @@ function Edit () {
               onChange={(e) => {
                   setGroupname(e.target.value);
                   SetGroupnameError(false);
-               
               }}
           />
           <br/>

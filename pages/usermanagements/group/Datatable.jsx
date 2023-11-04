@@ -95,6 +95,8 @@ function Datatable() {
       doc.save("Companies.pdf");
     });
   });
+
+  
   const pageSizes = [5, 10];
 
   const makereport = () => {

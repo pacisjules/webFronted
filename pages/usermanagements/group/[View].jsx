@@ -27,7 +27,6 @@ function View() {
   const getdetaildata = async ()=>{
     await axios.get("http://127.0.0.1:8000/group/"+View, { headers: { Authorization: `Bearer ${session.user.token}` } }).then((response)=>
      setLoadDatas(response.data),
-    
      )
   }
 

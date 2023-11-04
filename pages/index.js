@@ -88,7 +88,6 @@ function Home() {
   };
 
   //Login form
-
   const handleLogin = async (e) => {
     e.preventDefault();
 

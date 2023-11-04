@@ -9,8 +9,6 @@ import NextNProgress from 'nextjs-progressbar';
 function MyApp({ Component, pageProps, session }) {
   const router = useRouter();
 
-
-
   if (router.pathname === "/") {
     return (
       <SessionProvider session={session}>

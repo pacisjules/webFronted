@@ -65,6 +65,7 @@ function Addform(props) {
         setCategorydescrerro(true);
         setCategorydescrLabel("Add Description");
     } else {
+      
       // whatever you want to send
       const data = {
         user_id: localStorage.getItem('id'),
